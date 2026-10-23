@@ -1187,7 +1187,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   gap: 0.8rem;
 }
 
-.custom-check {
+/* .custom-check {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -1207,7 +1207,40 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 
 .custom-check input[type="checkbox"] {
   accent-color: var(--electric-cyan);
+} */
+
+
+/* Use .checkbox-grid .custom-check so it doesn't get overridden by general label rules */
+.checkbox-grid .custom-check {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem; /* Increased from 0.6rem for clearer separation */
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
 }
+
+.checkbox-grid .custom-check:hover {
+  border-color: var(--electric-cyan);
+  color: #fff;
+}
+
+.checkbox-grid .custom-check input[type="checkbox"] {
+  accent-color: var(--electric-cyan);
+  width: 1rem;
+  height: 1rem;
+  margin: 0; /* Removes uneven default browser margins */
+  flex-shrink: 0; /* Prevents the checkbox from squishing if text wraps */
+  cursor: pointer;
+}
+
+
+
 
 .form-status {
   text-align: center;
