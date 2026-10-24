@@ -224,10 +224,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 <<<<<<< HEAD
   height: 100px;
   max-height: 120px;
-=======
-  height: 46px;
-  max-height: 46px;
->>>>>>> fd430396318eef13eedabc3692ac667635012835
   width: auto;
   display: block;
   object-fit: contain;
