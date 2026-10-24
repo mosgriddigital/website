@@ -210,8 +210,8 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 }
 
 .brand-logo-img {
-  height: 46px;
-  max-height: 46px;
+  height: 150px;
+  max-height: 150px;
   width: auto;
   display: block;
   object-fit: contain;
