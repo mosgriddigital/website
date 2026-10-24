@@ -40,11 +40,7 @@ html {
 }
 
 /* ==========================================================================
-<<<<<<< HEAD
-   Fail-Safe High-Tech Pointer System
-=======
-   Fail-Safe High-Tech Pointer System (Never disappears or freezes)
->>>>>>> fd430396318eef13eedabc3692ac667635012835
+   Fail-Safe High-Tech Pointer System & Canvas Stacking
    ========================================================================== */
 body.dark-theme {
   background-color: var(--canvas-bg);
@@ -53,31 +49,32 @@ body.dark-theme {
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
-  
-<<<<<<< HEAD
-=======
-  /* Precision Cyan Semiconductor Stylus Pointer rendered by browser engine */
->>>>>>> fd430396318eef13eedabc3692ac667635012835
   cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3L10.5 21L13 13.5L21 10.5L3 3Z' fill='%2304070D' stroke='%2300F0FF' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='3.5' cy='3.5' r='1.5' fill='%2300F0FF'/%3E%3C/svg%3E") 3 3, auto !important;
+}
+
+/* Silicon Background Circuit Canvas (Visible Stacking) */
+#circuit-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Precision Silicon Reticle for Interactive Elements */
 a, button, select, input[type="checkbox"], 
 .spotlight-card, .filter-btn, .file-remove-btn, 
-.upload-dropzone, .btn, .social-chip {
+.upload-dropzone, .btn, .social-chip, .silicon-stage {
   cursor: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='13' cy='13' r='5' fill='%2300FF88' fill-opacity='0.25' stroke='%2300FF88' stroke-width='1.8'/%3E%3Ccircle cx='13' cy='13' r='1.5' fill='%23FFFFFF'/%3E%3Cpath d='M13 2V6M13 20V24M2 13H6M20 13H24' stroke='%2300FF88' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") 13 13, pointer !important;
 }
 
-/* Input Fields Precision Text Cursor */
 input[type="text"], input[type="email"], input[type="url"], input[type="tel"], textarea {
   cursor: text !important;
 }
 
-<<<<<<< HEAD
 /* Smooth Ambient Electron Aura */
-=======
-/* Smooth Ambient Electron Aura (Glides softly beneath the pointer) */
->>>>>>> fd430396318eef13eedabc3692ac667635012835
 .cursor-aura {
   position: fixed;
   top: 0;
@@ -110,7 +107,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
 }
 
-/* Click Shockwave Pulse */
 .cursor-pulse {
   position: fixed;
   border: 1.5px solid var(--electric-cyan);
@@ -132,21 +128,12 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   }
 }
 
-/* Background Canvas */
-#circuit-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
-  pointer-events: none;
-}
-
 .container {
   width: 90%;
   max-width: 1240px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* ==========================================================================
@@ -160,6 +147,8 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   padding: 0.5rem 0;
   font-size: 0.8rem;
   font-family: var(--font-mono);
+  position: relative;
+  z-index: 1;
 }
 
 .ticker-track {
@@ -221,9 +210,8 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 }
 
 .brand-logo-img {
-<<<<<<< HEAD
-  height: 100px;
-  max-height: 120px;
+  height: 46px;
+  max-height: 46px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -256,11 +244,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 .nav-link:hover { color: var(--electric-cyan); }
 
 /* ==========================================================================
-<<<<<<< HEAD
    Buttons
-=======
-   Buttons with Micro-Glow & Shimmer
->>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 .btn {
   display: inline-flex;
@@ -352,6 +336,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 .hero {
   padding: 5rem 0 4rem;
   position: relative;
+  z-index: 1;
 }
 
 .hero-layout {
@@ -390,51 +375,8 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   margin-bottom: 3rem;
 }
 
-<<<<<<< HEAD
-=======
-.hero-metrics {
-  display: flex;
-  align-items: center;
-  gap: 2.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1.8rem;
-}
-
-.metric-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.metric-number {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #fff;
-  display: inline-block;
-}
-
-.metric-unit {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  color: var(--electric-cyan);
-}
-
-.metric-label {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.metric-divider {
-  width: 1px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
->>>>>>> fd430396318eef13eedabc3692ac667635012835
 /* ==========================================================================
-   3D Gyro Silicon Die Visualization
+   Pure CSS 3D Silicon Chip Hologram & Real-Time Animations
    ========================================================================== */
 .silicon-stage {
   perspective: 1200px;
@@ -444,94 +386,383 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   align-items: center;
   justify-content: center;
   position: relative;
+  cursor: pointer;
 }
 
 .silicon-die {
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle at 50% 50%, #0d1629 0%, #060a14 100%);
-  border: 2px solid rgba(0, 240, 255, 0.4);
-  border-radius: 20px;
+  width: 370px;
+  height: 370px;
+  background: #060a14;
+  border-radius: 24px;
   transform-style: preserve-3d;
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.8),
-    0 0 50px rgba(0, 240, 255, 0.2);
-  transition: transform 0.1s ease-out;
   position: relative;
-  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  padding: 14px;
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.95),
+    0 0 45px rgba(0, 240, 255, 0.22);
+  /* Continuous 3D Gyroscopic Floating Motion */
+  animation: chip-idle-float 6s ease-in-out infinite alternate;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform, box-shadow;
 }
 
-.die-core {
+.silicon-stage:hover .silicon-die {
+  box-shadow: 
+    0 35px 80px -15px rgba(0, 0, 0, 0.98),
+    0 0 65px rgba(0, 240, 255, 0.45),
+    inset 0 0 30px rgba(0, 240, 255, 0.15);
+  border-color: rgba(0, 240, 255, 0.7);
+}
+
+@keyframes chip-idle-float {
+  0% { transform: rotateX(7deg) rotateY(-8deg) translateY(0px); }
+  50% { transform: rotateX(-5deg) rotateY(10deg) translateY(-12px); }
+  100% { transform: rotateX(8deg) rotateY(-5deg) translateY(4px); }
+}
+
+.chip-substrate {
   width: 100%;
   height: 100%;
+  background: radial-gradient(circle at 50% 50%, #0d1629 0%, #070c17 100%);
+  border: 1.5px solid rgba(0, 240, 255, 0.35);
+  border-radius: 18px;
   position: relative;
-  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-style: preserve-3d;
 }
 
-.wafer-grid {
+.substrate-notch {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid var(--matrix-green);
+  border-left: 2px solid var(--matrix-green);
+  border-top-left-radius: 4px;
+  animation: notch-pulse 2s ease-in-out infinite;
+}
+
+@keyframes notch-pulse {
+  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 2px var(--matrix-green)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px var(--matrix-green)); }
+}
+
+.smd-bank {
+  position: absolute;
+  background-image: repeating-linear-gradient(
+    to right,
+    #94a3b8 0px,
+    #94a3b8 4px,
+    #1e293b 4px,
+    #1e293b 8px
+  );
+  opacity: 0.75;
+}
+.smd-top { top: 8px; left: 35px; right: 35px; height: 4px; }
+.smd-bottom { bottom: 8px; left: 35px; right: 35px; height: 4px; }
+.smd-left { top: 35px; bottom: 35px; left: 8px; width: 4px; background-image: repeating-linear-gradient(to bottom, #94a3b8 0px, #94a3b8 4px, #1e293b 4px, #1e293b 8px); }
+.smd-right { top: 35px; bottom: 35px; right: 8px; width: 4px; background-image: repeating-linear-gradient(to bottom, #94a3b8 0px, #94a3b8 4px, #1e293b 4px, #1e293b 8px); }
+
+.chip-interposer {
+  width: 290px;
+  height: 290px;
+  background: #090e1a;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+  transform: translateZ(16px);
+  transform-style: preserve-3d;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.85);
+  transition: transform 0.4s ease;
+}
+
+.silicon-stage:hover .chip-interposer {
+  transform: translateZ(24px);
+}
+
+.bga-pin-ring {
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(0, 240, 255, 0.35);
+  border-radius: 8px;
+  pointer-events: none;
+  animation: bga-pulse 3s linear infinite;
+}
+
+@keyframes bga-pulse {
+  0%, 100% { border-color: rgba(0, 240, 255, 0.25); }
+  50% { border-color: rgba(0, 240, 255, 0.7); }
+}
+
+.active-silicon-die {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #0e172a 0%, #050811 100%);
+  border: 1.5px solid var(--electric-cyan);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(24px);
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.silicon-stage:hover .active-silicon-die {
+  transform: translateZ(36px);
+  box-shadow: 0 0 50px rgba(0, 240, 255, 0.45);
+}
+
+.die-floorplan {
   position: absolute;
   inset: 12px;
-  border: 1px dashed rgba(0, 240, 255, 0.2);
-  background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
-  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  z-index: 1;
 }
 
-.die-center-node {
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid var(--electric-cyan);
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
+.core-cell {
+  background: rgba(0, 240, 255, 0.03);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 4px;
+  padding: 6px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.silicon-stage:hover .core-cell {
+  border-color: rgba(0, 240, 255, 0.4);
+  background: rgba(0, 240, 255, 0.07);
+}
+
+.core-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.gate-mesh {
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.12) 1px, transparent 1px);
+  background-size: 8px 8px;
+  margin-top: 4px;
+  animation: mesh-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes mesh-shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.memory-grid {
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 136, 0.15) 0px,
+    rgba(0, 255, 136, 0.15) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  margin-top: 4px;
+  animation: memory-cycle 2.5s linear infinite;
+}
+
+@keyframes memory-cycle {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 12px; }
+}
+
+.die-center-spreader {
+  width: 175px;
+  padding: 14px 10px;
+  background: rgba(6, 10, 20, 0.94);
+  border: 1.5px solid var(--electric-cyan);
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  z-index: 2;
-  box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+  justify-content: center;
+  gap: 3px;
+  z-index: 5;
+  transform: translateZ(36px);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 240, 255, 0.35);
+  backdrop-filter: blur(8px);
+  position: relative;
+  transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
-.die-center-node i {
-  font-size: 2.2rem;
+.silicon-stage:hover .die-center-spreader {
+  transform: translateZ(48px);
+  border-color: #ffffff;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.95),
+    0 0 45px rgba(0, 240, 255, 0.6);
+}
+
+.spreader-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.25), transparent 70%);
+  animation: spreader-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes spreader-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.spreader-icon {
+  font-size: 1.8rem;
   color: var(--electric-cyan);
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.7));
+  margin-bottom: 2px;
+  animation: chip-icon-float 3s ease-in-out infinite alternate;
 }
 
-.die-center-node span {
+@keyframes chip-icon-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
+}
+
+.spreader-title {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #fff;
 }
 
-.die-tag {
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+.spreader-node {
   color: var(--matrix-green);
-  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  background: rgba(0, 255, 136, 0.15);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  border-radius: 3px;
+  margin-left: 3px;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
 
-.circuit-bus {
+.spreader-meta {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Pulsing Signal Traces */
+.bus-trace {
   position: absolute;
   background: var(--electric-cyan);
-  opacity: 0.6;
+  z-index: 2;
+  box-shadow: 0 0 10px var(--electric-cyan), 0 0 20px rgba(0, 240, 255, 0.6);
 }
-.bus-h { height: 2px; width: 60px; }
-.bus-v { width: 2px; height: 60px; }
+.trace-h { height: 2px; width: 45px; }
+.trace-v { width: 2px; height: 45px; }
 
-.bus-1 { top: 35%; left: 12px; box-shadow: 0 0 10px var(--electric-cyan); }
-.bus-2 { bottom: 35%; right: 12px; box-shadow: 0 0 10px var(--electric-cyan); }
-.bus-3 { top: 12px; left: 45%; box-shadow: 0 0 10px var(--electric-cyan); }
-.bus-4 { bottom: 12px; right: 45%; box-shadow: 0 0 10px var(--electric-cyan); }
+.trace-1 { 
+  top: 50%; left: 0;
+  animation: trace-h-left 2s ease-in-out infinite alternate;
+}
+.trace-2 { 
+  top: 50%; right: 0; 
+  animation: trace-h-right 2s ease-in-out infinite alternate;
+}
+.trace-3 { 
+  left: 50%; top: 0; 
+  animation: trace-v-top 2s ease-in-out infinite alternate;
+}
+.trace-4 { 
+  left: 50%; bottom: 0; 
+  animation: trace-v-bottom 2s ease-in-out infinite alternate;
+}
+
+@keyframes trace-h-left {
+  0% { width: 20px; opacity: 0.3; }
+  100% { width: 55px; opacity: 1; }
+}
+@keyframes trace-h-right {
+  0% { width: 55px; opacity: 1; }
+  100% { width: 20px; opacity: 0.3; }
+}
+@keyframes trace-v-top {
+  0% { height: 20px; opacity: 0.3; }
+  100% { height: 55px; opacity: 1; }
+}
+@keyframes trace-v-bottom {
+  0% { height: 55px; opacity: 1; }
+  100% { height: 20px; opacity: 0.3; }
+}
+
+/* Active Laser Scan Beam */
+.die-scan-beam {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 240, 255, 0.3) 50%,
+    rgba(0, 255, 136, 0.4) 90%,
+    #ffffff 100%
+  );
+  filter: drop-shadow(0 0 8px #00f0ff);
+  animation: die-sweep-active 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes die-sweep-active {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(420px); opacity: 0; }
+}
 
 .hologram-specular {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%, rgba(0, 240, 255, 0.08) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    transparent 45%,
+    rgba(0, 240, 255, 0.1) 100%
+  );
   pointer-events: none;
+  border-radius: 24px;
+  z-index: 10;
+  animation: specular-glare 4s ease-in-out infinite alternate;
+}
+
+@keyframes specular-glare {
+  0% { opacity: 0.5; }
+  100% { opacity: 0.9; }
 }
 
 /* ==========================================================================
@@ -540,6 +771,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 .section {
   padding: 6rem 0;
   position: relative;
+  z-index: 1;
 }
 
 .alt-bg {
@@ -582,11 +814,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 }
 
 /* ==========================================================================
-<<<<<<< HEAD
    Spotlight Cards
-=======
-   Spotlight Cards (Cursor Coordinates)
->>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 .spotlight-grid {
   display: grid;
@@ -800,21 +1028,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   z-index: 5;
 }
 
-<<<<<<< HEAD
-=======
-.dot-label {
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--matrix-green);
-  white-space: nowrap;
-  font-weight: 700;
-}
-
->>>>>>> fd430396318eef13eedabc3692ac667635012835
 .dot-label-sub {
   position: absolute;
   top: 12px;
@@ -828,7 +1041,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 
 .dot-munich { top: 25%; left: 28%; background: var(--electric-cyan); color: var(--electric-cyan); }
 .dot-taiwan { bottom: 25%; right: 28%; background: var(--warning-amber); color: var(--warning-amber); }
-<<<<<<< HEAD
 .radar-dot.dot-hyderabad {
   bottom: 28%;
   left: 24%;
@@ -847,8 +1059,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   color: #a855f7;
   box-shadow: 0 0 12px #a855f7, 0 0 24px rgba(168, 85, 247, 0.6);
 }
-=======
->>>>>>> fd430396318eef13eedabc3692ac667635012835
 
 /* ==========================================================================
    4-Step Roadmap Pipeline
@@ -1089,7 +1299,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   box-shadow: 0 0 16px rgba(0, 240, 255, 0.2);
 }
 
-/* Silicon File Upload Dropzone */
 .upload-dropzone {
   position: relative;
   background: rgba(0, 240, 255, 0.02);
@@ -1162,7 +1371,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   color: var(--text-secondary);
 }
 
-/* File Selected Preview Pill */
 .file-preview-pill {
   display: flex;
   align-items: center;
@@ -1234,41 +1442,10 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   gap: 0.8rem;
 }
 
-<<<<<<< HEAD
 .checkbox-grid .custom-check {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-=======
-/* .custom-check {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.65rem 0.9rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  transition: all 0.2s;
-}
-
-.custom-check:hover {
-  border-color: var(--electric-cyan);
-  color: #fff;
-}
-
-.custom-check input[type="checkbox"] {
-  accent-color: var(--electric-cyan);
-} */
-
-
-/* Use .checkbox-grid .custom-check so it doesn't get overridden by general label rules */
-.checkbox-grid .custom-check {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem; /* Increased from 0.6rem for clearer separation */
->>>>>>> fd430396318eef13eedabc3692ac667635012835
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.65rem 0.9rem;
@@ -1288,22 +1465,11 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   accent-color: var(--electric-cyan);
   width: 1rem;
   height: 1rem;
-<<<<<<< HEAD
   margin: 0;
   flex-shrink: 0;
   cursor: pointer;
 }
 
-=======
-  margin: 0; /* Removes uneven default browser margins */
-  flex-shrink: 0; /* Prevents the checkbox from squishing if text wraps */
-  cursor: pointer;
-}
-
-
-
-
->>>>>>> fd430396318eef13eedabc3692ac667635012835
 .form-status {
   text-align: center;
   margin-top: 1.25rem;
@@ -1411,6 +1577,8 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: #020409;
   padding: 5rem 0 0;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-grid {
@@ -1548,10 +1716,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   }
   .hero-subtext { margin: 0 auto 2rem; }
   .hero-buttons { justify-content: center; }
-<<<<<<< HEAD
-=======
-  .hero-metrics { justify-content: center; }
->>>>>>> fd430396318eef13eedabc3692ac667635012835
   .vizag-grid { grid-template-columns: 1fr; }
   .roadmap-track { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1582,317 +1746,4 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   .roadmap-track { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bar-inner { flex-direction: column; gap: 1rem; text-align: center; }
-<<<<<<< HEAD
-}
-=======
-}
-
-
-/* Bottom-Left Radar Dot: Hyderabad */
-.radar-dot.dot-hyderabad {
-  position: absolute;
-  bottom: 28%;
-  left: 24%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #00ff88;
-  box-shadow: 0 0 12px #00ff88, 0 0 24px rgba(0, 255, 136, 0.6);
-}
-
-/* Top-Right Radar Dot: Noida */
-.radar-dot.dot-noida {
-  position: absolute;
-  top: 24%;
-  right: 25%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #a855f7;
-  box-shadow: 0 0 12px #a855f7, 0 0 24px rgba(168, 85, 247, 0.6);
-}
->>>>>>> fd430396318eef13eedabc3692ac667635012835
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   3D Gyro Silicon Die Visualization (Sub-3nm Multi-Chiplet SoC)
-   ========================================================================== */
-.silicon-stage {
-  perspective: 1200px;
-  width: 100%;
-  height: 440px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.silicon-die {
-  width: 370px;
-  height: 370px;
-  background: #060a14;
-  border-radius: 24px;
-  transform-style: preserve-3d;
-  box-shadow: 
-    0 25px 60px -15px rgba(0, 0, 0, 0.95),
-    0 0 50px rgba(0, 240, 255, 0.22);
-  transition: transform 0.1s ease-out;
-  position: relative;
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  padding: 14px;
-  overflow: hidden;
-}
-
-/* Substrate Carrier with Alignment Notch */
-.chip-substrate {
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, #0d1629 0%, #070c17 100%);
-  border: 1.5px solid rgba(0, 240, 255, 0.35);
-  border-radius: 18px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-style: preserve-3d;
-}
-
-.substrate-notch {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 14px;
-  height: 14px;
-  border-top: 2px solid var(--matrix-green);
-  border-left: 2px solid var(--matrix-green);
-  border-top-left-radius: 4px;
-}
-
-/* SMD Decoupling Capacitor Banks */
-.smd-bank {
-  position: absolute;
-  background-image: repeating-linear-gradient(
-    to right,
-    #94a3b8 0px,
-    #94a3b8 4px,
-    #1e293b 4px,
-    #1e293b 8px
-  );
-  opacity: 0.65;
-}
-.smd-top { top: 8px; left: 35px; right: 35px; height: 4px; }
-.smd-bottom { bottom: 8px; left: 35px; right: 35px; height: 4px; }
-.smd-left { top: 35px; bottom: 35px; left: 8px; width: 4px; background-image: repeating-linear-gradient(to bottom, #94a3b8 0px, #94a3b8 4px, #1e293b 4px, #1e293b 8px); }
-.smd-right { top: 35px; bottom: 35px; right: 8px; width: 4px; background-image: repeating-linear-gradient(to bottom, #94a3b8 0px, #94a3b8 4px, #1e293b 4px, #1e293b 8px); }
-
-/* Silicon Interposer Carrier Layer */
-.chip-interposer {
-  width: 290px;
-  height: 290px;
-  background: #090e1a;
-  border: 1px solid rgba(0, 240, 255, 0.25);
-  border-radius: 12px;
-  padding: 10px;
-  position: relative;
-  transform: translateZ(14px);
-  transform-style: preserve-3d;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.85);
-}
-
-/* Micro-via BGA Perimeter Ring */
-.bga-pin-ring {
-  position: absolute;
-  inset: 4px;
-  border: 1px dashed rgba(0, 240, 255, 0.35);
-  border-radius: 8px;
-  pointer-events: none;
-}
-
-/* Active Raw Silicon Die Surface */
-.active-silicon-die {
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, #0e172a 0%, #050811 100%);
-  border: 1px solid var(--electric-cyan);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(22px);
-  transform-style: preserve-3d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 35px rgba(0, 240, 255, 0.18);
-}
-
-/* Floorplan Layout (4 Core Clusters) */
-.die-floorplan {
-  position: absolute;
-  inset: 12px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 8px;
-  z-index: 1;
-}
-
-.core-cell {
-  background: rgba(0, 240, 255, 0.03);
-  border: 1px solid rgba(0, 240, 255, 0.15);
-  border-radius: 4px;
-  padding: 6px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.core-lbl {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  color: var(--text-tertiary);
-  letter-spacing: 0.05em;
-  font-weight: 700;
-}
-
-.gate-mesh {
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
-  background-size: 8px 8px;
-  margin-top: 4px;
-}
-
-.memory-grid {
-  height: 100%;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 255, 136, 0.1) 0px,
-    rgba(0, 255, 136, 0.1) 2px,
-    transparent 2px,
-    transparent 6px
-  );
-  margin-top: 4px;
-}
-
-/* Central Heat Spreader & Laser Inscription */
-.die-center-spreader {
-  width: 175px;
-  padding: 14px 10px;
-  background: rgba(6, 10, 20, 0.92);
-  border: 1.5px solid var(--electric-cyan);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  z-index: 5;
-  transform: translateZ(28px);
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.9),
-    0 0 25px rgba(0, 240, 255, 0.35);
-  backdrop-filter: blur(8px);
-  position: relative;
-}
-
-.spreader-glow {
-  position: absolute;
-  inset: -1px;
-  border-radius: 8px;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.15), transparent 70%);
-  pointer-events: none;
-}
-
-.spreader-icon {
-  font-size: 1.8rem;
-  color: var(--electric-cyan);
-  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
-  margin-bottom: 2px;
-}
-
-.spreader-title {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #fff;
-}
-
-.spreader-node {
-  color: var(--matrix-green);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 1px 4px;
-  background: rgba(0, 255, 136, 0.1);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 3px;
-  margin-left: 3px;
-}
-
-.spreader-meta {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  white-space: nowrap;
-}
-
-/* High-Speed Signal Traces */
-.bus-trace {
-  position: absolute;
-  background: var(--electric-cyan);
-  box-shadow: 0 0 8px var(--electric-cyan);
-  z-index: 2;
-  opacity: 0.7;
-}
-.trace-h { height: 1.5px; width: 45px; }
-.trace-v { width: 1.5px; height: 45px; }
-
-.trace-1 { top: 50%; left: 0; }
-.trace-2 { top: 50%; right: 0; }
-.trace-3 { left: 50%; top: 0; }
-.trace-4 { left: 50%; bottom: 0; }
-
-/* Laser Beam Sweep Animation */
-.die-scan-beam {
-  position: absolute;
-  top: -100%;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.25), transparent);
-  animation: die-sweep 3.5s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 4;
-}
-
-@keyframes die-sweep {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(400px); opacity: 0; }
-}
-
-.hologram-specular {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, transparent 45%, rgba(0, 240, 255, 0.06) 100%);
-  pointer-events: none;
-  border-radius: 24px;
-  z-index: 10;
 }
