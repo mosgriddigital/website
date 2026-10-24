@@ -4,8 +4,13 @@
  * Native File Attachment Delivery & Inquiries Pipeline
  */
 
+<<<<<<< HEAD
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwtRIItGsFs7ZLDYS7RgJvg0q-dytmBtl6k5ucHduJN2gia25HAz3HGwvaXSFIATqwM/exec';
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB limit
+=======
+let isCandidateSubmitting = false;
+let isContactSubmitting = false;
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
 
 document.addEventListener('DOMContentLoaded', () => {
   initAmbientCursorAura();
@@ -18,11 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initMobileMenu();
   initResumeUpload();
+<<<<<<< HEAD
   initFormSubmissions();
 });
 
 /* ==========================================================================
    1. Smooth Ambient Electron Aura
+=======
+  initIframesListeners();
+});
+
+/* ==========================================================================
+   1. Smooth Ambient Electron Aura (Glides under the native SVG pointer)
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 function initAmbientCursorAura() {
   const aura = document.getElementById('cursorAura');
@@ -73,8 +86,17 @@ function initAmbientCursorAura() {
   function attachHoverListeners() {
     const targets = document.querySelectorAll(interactiveSelector);
     targets.forEach((el) => {
+<<<<<<< HEAD
       el.addEventListener('mouseenter', () => aura.classList.add('aura-hover'));
       el.addEventListener('mouseleave', () => aura.classList.remove('aura-hover'));
+=======
+      el.addEventListener('mouseenter', () => {
+        aura.classList.add('aura-hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        aura.classList.remove('aura-hover');
+      });
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
     });
   }
   attachHoverListeners();
@@ -86,12 +108,22 @@ function initAmbientCursorAura() {
     pulse.style.top = `${e.clientY}px`;
     document.body.appendChild(pulse);
 
+<<<<<<< HEAD
     setTimeout(() => pulse.remove(), 550);
+=======
+    setTimeout(() => {
+      pulse.remove();
+    }, 550);
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
   });
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    2. Interactive 2D Silicon Circuit Canvas
+=======
+   2. Interactive 2D Silicon Circuit Canvas (Ortho Manhattan Traces)
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 function initCircuitCanvas() {
   const canvas = document.getElementById('circuit-canvas');
@@ -171,7 +203,11 @@ function initCircuitCanvas() {
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    3. 3D Gyroscopic Silicon Die Tilt
+=======
+   3. 3D Gyroscopic Silicon Die Tilt Effect
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 function initSilicon3DTilt() {
   const stage = document.getElementById('siliconStage');
@@ -195,15 +231,27 @@ function initSilicon3DTilt() {
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    4. Spotlight Card Hover
+=======
+   4. Spotlight Card Cursor Physics (--mouse-x, --mouse-y)
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 function initSpotlightHover() {
   const cards = document.querySelectorAll('.spotlight-card');
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
+<<<<<<< HEAD
       card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
       card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+=======
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
     });
   });
 }
@@ -245,7 +293,11 @@ function initAnimatedCounters() {
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    6. Job Hub Filters
+=======
+   6. Filterable Domestic Tech Hubs & Roles
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 function initJobFilters() {
   const buttons = document.querySelectorAll('.filter-btn');
@@ -261,14 +313,28 @@ function initJobFilters() {
 
       jobs.forEach(job => {
         const categoryAttr = (job.getAttribute('data-category') || '').toLowerCase();
+<<<<<<< HEAD
         job.style.display = (filter === 'all' || categoryAttr.includes(filter)) ? 'flex' : 'none';
+=======
+        const categories = categoryAttr.split(/\s+/);
+
+        if (filter === 'all' || categories.includes(filter) || categoryAttr.includes(filter)) {
+          job.style.display = 'flex';
+        } else {
+          job.style.display = 'none';
+        }
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
       });
     });
   });
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    7. EDA Terminal Simulation
+=======
+   7. Live EDA Synthesis Terminal Log Simulation (Safely runs if unhidden)
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 function initTerminalSimulation() {
   const screen = document.getElementById('terminalScreen');
@@ -307,13 +373,25 @@ function initTerminalSimulation() {
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    8. Navigation Scroll & Mobile Drawer
+=======
+   8. Navigation Bar Scroll State & Mobile Drawer Toggle
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
    ========================================================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
   window.addEventListener('scroll', () => {
+<<<<<<< HEAD
     navbar.classList.toggle('scrolled', window.scrollY > 30);
+=======
+    if (window.scrollY > 30) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
   });
 }
 
@@ -321,15 +399,33 @@ function initMobileMenu() {
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navMenu');
 
+<<<<<<< HEAD
   hamburger?.addEventListener('click', () => navMenu?.classList.toggle('active'));
   navMenu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => navMenu.classList.remove('active'));
+=======
+  hamburger?.addEventListener('click', () => {
+    navMenu?.classList.toggle('active');
+  });
+
+  navMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
   });
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    9. Resume File Drag & Drop Validation
    ========================================================================== */
+=======
+   9. Resume File Upload & 10MB Validation Handling
+   ========================================================================== */
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB limit
+
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
 function initResumeUpload() {
   const dropzone = document.getElementById('dropzone');
   const fileInput = document.getElementById('resumeFile');
@@ -389,24 +485,40 @@ function initResumeUpload() {
 
     if (file.size > MAX_FILE_SIZE) {
       const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+<<<<<<< HEAD
       errorMsg.innerText = `❌ File size (${sizeMB} MB) exceeds the 10 MB limit. Please compress your resume.`;
+=======
+      errorMsg.innerText = `❌ File size (${sizeMB} MB) exceeds the 10 MB limit. Please upload a smaller file.`;
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
       resetFileUpload();
       return;
     }
 
     if (fileNameText) fileNameText.innerText = file.name;
+<<<<<<< HEAD
     if (fileSizeText) fileSizeText.innerText = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
     
     if (fileTypeIcon) {
       fileTypeIcon.className = (fileExt === 'pdf') 
         ? 'fa-solid fa-file-pdf file-type-icon text-cyan' 
         : 'fa-solid fa-file-word file-type-icon text-green';
+=======
+    if (fileSizeText) fileSizeText.innerText = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+    
+    if (fileTypeIcon) {
+      if (fileExt === 'pdf') {
+        fileTypeIcon.className = 'fa-solid fa-file-pdf file-type-icon text-cyan';
+      } else {
+        fileTypeIcon.className = 'fa-solid fa-file-word file-type-icon text-green';
+      }
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
     }
 
     if (dropContent) dropContent.style.display = 'none';
     if (filePreview) filePreview.style.display = 'flex';
   }
 
+<<<<<<< HEAD
   window.resetResumeUploadUI = function() {
     fileInput.value = '';
     if (dropContent) dropContent.style.display = 'flex';
@@ -416,10 +528,17 @@ function initResumeUpload() {
 
   function resetFileUpload() {
     window.resetResumeUploadUI();
+=======
+  function resetFileUpload() {
+    fileInput.value = '';
+    if (dropContent) dropContent.style.display = 'flex';
+    if (filePreview) filePreview.style.display = 'none';
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
   }
 }
 
 /* ==========================================================================
+<<<<<<< HEAD
    10. Native API Integration (Google Apps Script Ingestion Pipeline)
    ========================================================================== */
 function initFormSubmissions() {
@@ -461,15 +580,30 @@ async function handleCandidateSubmit(e) {
   const btn = document.getElementById('submitBtn');
   const status = document.getElementById('formStatus');
   const form = document.getElementById('mosgridForm');
+=======
+   10. Candidate Portal Form Submission
+   ========================================================================== */
+function handleCandidateSubmit(e) {
+  const fileInput = document.getElementById('resumeFile');
+  const errorMsg = document.getElementById('fileErrorMsg');
+  const btn = document.getElementById('submitBtn');
+  const candNameInput = document.getElementById('candName');
+  const candName = candNameInput ? candNameInput.value.trim() : 'Candidate';
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
 
   if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
     if (errorMsg) errorMsg.innerText = '❌ Please upload your resume in PDF or Word format (max 10MB).';
     fileInput?.focus();
+<<<<<<< HEAD
     return;
+=======
+    return false;
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
   }
 
   const file = fileInput.files[0];
   if (file.size > MAX_FILE_SIZE) {
+<<<<<<< HEAD
     if (errorMsg) errorMsg.innerText = '❌ File size exceeds 10MB limit.';
     return;
   }
@@ -525,10 +659,113 @@ async function handleCandidateSubmit(e) {
 async function handleContactSubmit(e) {
   e.preventDefault();
 
+=======
+    if (errorMsg) errorMsg.innerText = '❌ File size exceeds 10MB limit. Please compress or choose a smaller file.';
+    return false;
+  }
+
+  const selectedFocus = [];
+  document.querySelectorAll('input[name="focus_cb"]:checked').forEach(cb => {
+    selectedFocus.push(cb.value);
+  });
+  const hiddenDomains = document.getElementById('hiddenTechnicalDomains');
+  if (hiddenDomains) {
+    hiddenDomains.value = selectedFocus.length > 0 ? selectedFocus.join(', ') : 'None specified';
+  }
+
+  const subjectField = document.getElementById('emailSubject');
+  if (subjectField) {
+    subjectField.value = `⚡ New MosGrid Application + Resume Attached: ${candName}`;
+  }
+
+  isCandidateSubmitting = true;
+  if (btn) {
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    btn.innerHTML = `<span>Uploading Resume & Dispatching Application...</span>`;
+  }
+
+  setTimeout(() => {
+    if (isCandidateSubmitting) {
+      completeCandidateSubmissionUI();
+    }
+  }, 4500);
+
+  return true;
+}
+
+function completeCandidateSubmissionUI() {
+  isCandidateSubmitting = false;
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+  const form = document.getElementById('mosgridForm');
+  const dropContent = document.getElementById('dropzoneContent');
+  const filePreview = document.getElementById('filePreview');
+  const fileInput = document.getElementById('resumeFile');
+
+  if (btn) {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.innerHTML = `<span class="btn-shine"></span><span>Submit Profile & Attached Resume</span><i class="fa-solid fa-paper-plane"></i>`;
+  }
+
+  if (status) {
+    status.style.color = '#00ff88';
+    status.innerHTML = `<i class="fa-solid fa-circle-check"></i> Profile and Resume attachment successfully dispatched! Thank you for applying to <strong>MosGrid Technologies</strong>.`;
+  }
+
+  form?.reset();
+  if (fileInput) fileInput.value = '';
+
+  if (dropContent && filePreview) {
+    dropContent.style.display = 'flex';
+    filePreview.style.display = 'none';
+  }
+
+  setTimeout(() => {
+    if (status) status.innerHTML = '';
+  }, 9000);
+}
+
+/* ==========================================================================
+   11. Contact Us Section Form Submission
+   ========================================================================== */
+function handleGeneralContactSubmit(e) {
+  const btn = document.getElementById('contactSubmitBtn');
+  const nameInput = document.getElementById('contactName');
+  const name = nameInput ? nameInput.value.trim() : 'Client';
+  const inquiryInput = document.getElementById('inquiryType');
+  const inquiry = inquiryInput ? inquiryInput.value : 'General Inquiry';
+
+  const subjectField = document.getElementById('contactSubject');
+  if (subjectField) {
+    subjectField.value = `⚡ New MosGrid Inquiry [${inquiry}]: ${name}`;
+  }
+
+  isContactSubmitting = true;
+  if (btn) {
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    btn.innerHTML = `<span>Transmitting Message to MosGrid...</span>`;
+  }
+
+  setTimeout(() => {
+    if (isContactSubmitting) {
+      completeContactSubmissionUI();
+    }
+  }, 3500);
+
+  return true;
+}
+
+function completeContactSubmissionUI() {
+  isContactSubmitting = false;
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
   const btn = document.getElementById('contactSubmitBtn');
   const status = document.getElementById('contactFormStatus');
   const form = document.getElementById('mosgridContactForm');
 
+<<<<<<< HEAD
   btn.disabled = true;
   btn.style.opacity = '0.7';
   btn.innerHTML = `<span>Transmitting to Silicon Desk...</span>`;
@@ -562,4 +799,36 @@ async function handleContactSubmit(e) {
     btn.innerHTML = `<span class="btn-shine"></span><span>Transmit Message</span><i class="fa-solid fa-paper-plane"></i>`;
     setTimeout(() => { status.innerHTML = ''; }, 9000);
   }
+=======
+  if (btn) {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.innerHTML = `<span class="btn-shine"></span><span>Transmit Message</span><i class="fa-solid fa-paper-plane"></i>`;
+  }
+
+  if (status) {
+    status.style.color = '#00ff88';
+    status.innerHTML = `<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been transmitted successfully. Our engineering desk will respond within 24 hours.`;
+  }
+
+  form?.reset();
+
+  setTimeout(() => {
+    if (status) status.innerHTML = '';
+  }, 9000);
+}
+
+/* Listen for hidden iframes load events */
+function initIframesListeners() {
+  const uploadIframe = document.getElementById('hiddenUploadFrame');
+  const contactIframe = document.getElementById('hiddenContactFrame');
+
+  uploadIframe?.addEventListener('load', () => {
+    if (isCandidateSubmitting) completeCandidateSubmissionUI();
+  });
+
+  contactIframe?.addEventListener('load', () => {
+    if (isContactSubmitting) completeContactSubmissionUI();
+  });
+>>>>>>> fd430396318eef13eedabc3692ac667635012835
 }
