@@ -44,28 +44,7 @@ html {
    ========================================================================== */
 body.dark-theme {
   background-color: var(--canvas-bg);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  position: relative;
-  -webkit-font-smoothing: antialiased;
-  cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3L10.5 21L13 13.5L21 10.5L3 3Z' fill='%2304070D' stroke='%2300F0FF' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='3.5' cy='3.5' r='1.5' fill='%2300F0FF'/%3E%3C/svg%3E") 3 3, auto !important;
-}
-
-/* Silicon Background Circuit Canvas (Visible Stacking) */
-/* #circuit-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-}  */
-/* Silicon Background Grid Substrate + Canvas */
-body.dark-theme {
-  background-color: var(--canvas-bg);
-  /* Subtle semiconductor PCB micro-grid across every page */
+  /* Semiconductor PCB micro-grid across every page */
   background-image: 
     linear-gradient(rgba(0, 240, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 240, 255, 0.025) 1px, transparent 1px);
@@ -88,16 +67,8 @@ body.dark-theme {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 1; /* Keep canvas container at 1, control opacity via canvas stroke */
+  opacity: 1;
 }
-
-
-
-
-
-
-
-
 
 /* Precision Silicon Reticle for Interactive Elements */
 a, button, select, input[type="checkbox"], 
@@ -173,7 +144,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 }
 
 /* ==========================================================================
-   Global Live Ticker
+   Global Live Ticker (Top Bar)
    ========================================================================== */
 .top-ticker {
   background: rgba(0, 240, 255, 0.05);
@@ -207,7 +178,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 }
 
 /* ==========================================================================
-   Navbar
+   Navbar (Header Navigation)
    ========================================================================== */
 .navbar {
   position: sticky;
@@ -245,9 +216,10 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   align-items: center;
 }
 
+/* Balanced Navbar Brand Logo */
 .brand-logo-img {
-  height: 150px;
-  max-height: 150px;
+  height: 120px;
+  max-height: 120px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -255,15 +227,22 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 }
 
 .brand-logo-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
   filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.6));
 }
 
+/* .nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+} */
 .nav-menu {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-left: auto;
 }
+
 
 .nav-link {
   color: var(--text-secondary);
@@ -276,8 +255,15 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   transition: color 0.2s ease;
 }
 
-.nav-link i { font-size: 0.8rem; color: var(--electric-cyan); opacity: 0.8; }
-.nav-link:hover { color: var(--electric-cyan); }
+.nav-link i { 
+  font-size: 0.8rem; 
+  color: var(--electric-cyan); 
+  opacity: 0.8; 
+}
+
+.nav-link:hover { 
+  color: var(--electric-cyan); 
+}
 
 /* ==========================================================================
    Buttons
@@ -437,7 +423,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   box-shadow: 
     0 25px 60px -15px rgba(0, 0, 0, 0.95),
     0 0 45px rgba(0, 240, 255, 0.22);
-  /* Continuous 3D Gyroscopic Floating Motion */
   animation: chip-idle-float 6s ease-in-out infinite alternate;
   transition: box-shadow 0.4s ease, border-color 0.4s ease;
   will-change: transform, box-shadow;
@@ -1097,7 +1082,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 }
 
 /* ==========================================================================
-   4-Step Roadmap Pipeline
+   Roadmap Pipeline
    ========================================================================== */
 .roadmap-track {
   display: grid;
@@ -1118,12 +1103,6 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 .roadmap-step:hover {
   border-color: var(--electric-cyan);
   transform: translateY(-4px);
-}
-
-.highlight-step {
-  background: linear-gradient(180deg, rgba(0, 240, 255, 0.12), rgba(9, 14, 26, 0.8));
-  border-color: var(--electric-cyan);
-  box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
 }
 
 .step-num {
@@ -1612,7 +1591,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
 .site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: #020409;
-  padding: 5rem 0 0;
+  padding: 4.5rem 0 0;
   position: relative;
   z-index: 1;
 }
@@ -1621,14 +1600,34 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 3.5rem;
-  padding-bottom: 4rem;
+  padding-bottom: 3.5rem;
+}
+
+/* Minimal & Clean Footer Logo */
+.site-footer .brand-col .brand {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.site-footer .brand-logo-img {
+  height: 120px !important;
+  max-height: 120px !important;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.site-footer .brand-logo-img:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.45));
 }
 
 .brand-col p {
   color: var(--text-tertiary);
   font-size: 0.92rem;
   line-height: 1.6;
-  margin: 1.2rem 0 1.5rem;
+  margin: 1rem 0 1.5rem;
 }
 
 .social-chips {
@@ -1724,7 +1723,9 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   color: var(--text-tertiary);
   text-decoration: none;
 }
-.legal-links a:hover { color: var(--text-secondary); }
+.legal-links a:hover { 
+  color: var(--text-secondary); 
+}
 
 /* ==========================================================================
    Responsive Adaptations
