@@ -837,7 +837,6 @@
 
 
 
-
 /**
  * MosGrid Technologies Platform Engine
  * Headquartered in Visakhapatnam, Andhra Pradesh, India
@@ -930,86 +929,177 @@ function initAmbientCursorAura() {
   });
 }
 
+
 /* ==========================================================================
-   2. Interactive 2D Silicon Circuit Canvas (Ortho Manhattan Traces)
+   2. 3D Perspective Silicon Circuit Canvas (Multi-Layer Depth & Parallax)
    ========================================================================== */
 function initCircuitCanvas() {
   const canvas = document.getElementById('circuit-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  let width, height;
-  let lines = [];
-  const gridSize = 45;
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
 
-  function resize() {
+  // 3D Camera & Perspective Settings
+  const fov = 450;
+  let targetRotX = 0;
+  let targetRotY = 0;
+  let rotX = 0;
+  let rotY = 0;
+
+  // Track mouse for 3D gyro perspective
+  window.addEventListener('mousemove', (e) => {
+    const normX = (e.clientX / width) - 0.5;
+    const normY = (e.clientY / height) - 0.5;
+    targetRotY = normX * 0.45; // Yaw
+    targetRotX = -normY * 0.35; // Pitch
+  });
+
+  window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
-    generateCircuitLines();
-  }
+    build3DCircuits();
+  });
 
-  window.addEventListener('resize', resize);
+  let traces = [];
+  const GRID = 60;
+  const LAYERS = [-140, -40, 60, 160]; // 4 distinct 3D silicon interconnect layers
 
-  function generateCircuitLines() {
-    lines = [];
-    const count = Math.floor((width * height) / 22000);
+  function build3DCircuits() {
+    traces = [];
+    const count = Math.floor((width * height) / 14000);
 
     for (let i = 0; i < count; i++) {
-      let x = Math.floor((Math.random() * width) / gridSize) * gridSize;
-      let y = Math.floor((Math.random() * height) / gridSize) * gridSize;
-      let length = (Math.floor(Math.random() * 4) + 3) * gridSize;
-      let horizontal = Math.random() > 0.5;
+      // Pick random starting point on 3D grid
+      const x1 = (Math.floor((Math.random() * width - width / 2) / GRID)) * GRID;
+      const y1 = (Math.floor((Math.random() * height - height / 2) / GRID)) * GRID;
+      const z1 = LAYERS[Math.floor(Math.random() * LAYERS.length)];
 
-      lines.push({
-        x,
-        y,
-        len: length,
-        horizontal: horizontal,
+      const length = (Math.floor(Math.random() * 4) + 2) * GRID;
+      const axis = Math.random();
+
+      let x2 = x1, y2 = y1, z2 = z1;
+
+      if (axis < 0.45) {
+        // X-Axis Trace
+        x2 = x1 + (Math.random() > 0.5 ? length : -length);
+      } else if (axis < 0.85) {
+        // Y-Axis Trace
+        y2 = y1 + (Math.random() > 0.5 ? length : -length);
+      } else {
+        // Through-Silicon Via (Z-Axis Vertical Interlayer Trace)
+        const nextLayerIdx = Math.floor(Math.random() * LAYERS.length);
+        z2 = LAYERS[nextLayerIdx];
+      }
+
+      traces.push({
+        x1, y1, z1,
+        x2, y2, z2,
+        isVia: z1 !== z2,
         progress: Math.random(),
-        speed: 0.004 + Math.random() * 0.006,
-        color: Math.random() > 0.3 ? '#00f0ff' : '#0070f3'
+        speed: 0.003 + Math.random() * 0.004,
+        color: Math.random() > 0.35 ? '#00f0ff' : '#00ff88'
       });
     }
   }
 
-  resize();
+  build3DCircuits();
 
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
+  // 3D to 2D Perspective Projection Helper
+  function project(x, y, z) {
+    // Rotate Y (Yaw)
+    const cosY = Math.cos(rotY);
+    const sinY = Math.sin(rotY);
+    const x1 = x * cosY - z * sinY;
+    const z1 = z * cosY + x * sinY;
 
-    lines.forEach(line => {
-      ctx.beginPath();
-      // Enhanced high-contrast visibility
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.16)';
-      ctx.lineWidth = 1;
+    // Rotate X (Pitch)
+    const cosX = Math.cos(rotX);
+    const sinX = Math.sin(rotX);
+    const y1 = y * cosX - z1 * sinX;
+    const z2 = z1 * cosX + y * sinX;
 
-      let xEnd = line.horizontal ? line.x + line.len : line.x;
-      let yEnd = line.horizontal ? line.y : line.y + line.len;
+    // Perspective Division
+    const scale = fov / (fov + z2 + 250);
+    const px = x1 * scale + width / 2;
+    const py = y1 * scale + height / 2;
 
-      ctx.moveTo(line.x, line.y);
-      ctx.lineTo(xEnd, yEnd);
-      ctx.stroke();
-
-      line.progress += line.speed;
-      if (line.progress > 1) line.progress = 0;
-
-      let pulseX = line.horizontal ? line.x + line.len * line.progress : line.x;
-      let pulseY = line.horizontal ? line.y : line.y + line.len * line.progress;
-
-      ctx.beginPath();
-      ctx.arc(pulseX, pulseY, 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = line.color;
-      ctx.shadowColor = line.color;
-      ctx.shadowBlur = 10;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    });
-
-    requestAnimationFrame(animate);
+    return { x: px, y: py, scale, z: z2 };
   }
 
-  animate();
+  function render() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Smooth gyro rotation interpolation
+    rotX += (targetRotX - rotX) * 0.05;
+    rotY += (targetRotY - rotY) * 0.05;
+
+    // Draw Traces
+    for (let i = 0; i < traces.length; i++) {
+      const t = traces[i];
+      const p1 = project(t.x1, t.y1, t.z1);
+      const p2 = project(t.x2, t.y2, t.z2);
+
+      // Depth culling
+      if (p1.scale <= 0 || p2.scale <= 0) continue;
+
+      const avgScale = (p1.scale + p2.scale) / 2;
+      const alpha = Math.max(0.04, Math.min(0.25, avgScale * 0.22));
+
+      // 1. Draw Static Wire
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.lineWidth = Math.max(0.6, avgScale * 1.6);
+
+      if (t.isVia) {
+        // Vertical Via style (dotted/dashed)
+        ctx.strokeStyle = `rgba(168, 85, 247, ${alpha * 1.3})`;
+        ctx.setLineDash([2, 4]);
+      } else {
+        ctx.strokeStyle = `rgba(0, 240, 255, ${alpha})`;
+        ctx.setLineDash([]);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // 2. Draw Junction Nodes at Endpoints
+      ctx.beginPath();
+      ctx.arc(p1.x, p1.y, Math.max(1, avgScale * 1.8), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 240, 255, ${alpha * 1.5})`;
+      ctx.fill();
+
+      // 3. Animate 3D Electron Pulse Packet
+      t.progress += t.speed;
+      if (t.progress > 1) t.progress = 0;
+
+      const curX = t.x1 + (t.x2 - t.x1) * t.progress;
+      const curY = t.y1 + (t.y2 - t.y1) * t.progress;
+      const curZ = t.z1 + (t.z2 - t.z1) * t.progress;
+
+      const pulseProj = project(curX, curY, curZ);
+      if (pulseProj.scale > 0) {
+        const pulseSize = Math.max(1.2, pulseProj.scale * 3.2);
+
+        ctx.beginPath();
+        ctx.arc(pulseProj.x, pulseProj.y, pulseSize, 0, Math.PI * 2);
+        ctx.fillStyle = t.color;
+        ctx.shadowColor = t.color;
+        ctx.shadowBlur = Math.max(4, pulseProj.scale * 12);
+        ctx.fill();
+        ctx.shadowBlur = 0; // Reset
+      }
+    }
+
+    requestAnimationFrame(render);
+  }
+
+  render();
 }
+
+
+
 
 /* ==========================================================================
    3. 3D Gyroscopic Silicon Die Tilt Reaction

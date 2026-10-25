@@ -53,6 +53,33 @@ body.dark-theme {
 }
 
 /* Silicon Background Circuit Canvas (Visible Stacking) */
+/* #circuit-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}  */
+/* Silicon Background Grid Substrate + Canvas */
+body.dark-theme {
+  background-color: var(--canvas-bg);
+  /* Subtle semiconductor PCB micro-grid across every page */
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3L10.5 21L13 13.5L21 10.5L3 3Z' fill='%2304070D' stroke='%2300F0FF' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='3.5' cy='3.5' r='1.5' fill='%2300F0FF'/%3E%3C/svg%3E") 3 3, auto !important;
+}
+
+/* Silicon Background Circuit Canvas */
 #circuit-canvas {
   position: fixed;
   top: 0;
@@ -61,7 +88,16 @@ body.dark-theme {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
+  opacity: 1; /* Keep canvas container at 1, control opacity via canvas stroke */
 }
+
+
+
+
+
+
+
+
 
 /* Precision Silicon Reticle for Interactive Elements */
 a, button, select, input[type="checkbox"], 
@@ -1746,4 +1782,18 @@ input[type="text"], input[type="email"], input[type="url"], input[type="tel"], t
   .roadmap-track { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bar-inner { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* Direct Anchor Scroll Offsets & Focus Animation */
+.roadmap-step,
+.section,
+.spotlight-card {
+  scroll-margin-top: 90px;
+}
+
+.roadmap-step:target {
+  border-color: var(--electric-cyan);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.35);
+  transform: translateY(-4px);
+  transition: all 0.4s ease;
 }

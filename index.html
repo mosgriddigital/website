@@ -48,7 +48,7 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#about-us" class="nav-link"><i class="fa-solid fa-cube"></i> About Us</a>
-        <a href="#vizag-hub" class="nav-link"><i class="fa-solid fa-building-flag"></i> Vizag HQ</a>
+        <!-- <a href="#vizag-hub" class="nav-link"><i class="fa-solid fa-building-flag"></i> Vizag HQ</a> -->
         <a href="#pipeline" class="nav-link"><i class="fa-solid fa-route"></i> Career Pipeline</a>
         <a href="#openings" class="nav-link"><i class="fa-solid fa-globe"></i> Openings</a>
         <a href="#apply" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> Registration</a>
@@ -348,6 +348,9 @@
     </div>
   </section> -->
 
+
+
+
 <!-- 6-Domain VLSI Engineering & Acceleration Section -->
   <section class="section" id="pipeline">
     <div class="container">
@@ -359,7 +362,7 @@
 
       <div class="roadmap-track">
         <!-- 01: RTL / FPGA Design -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-rtl">
           <div class="step-num">01</div>
           <div class="step-glow"></div>
           <h4>RTL / FPGA Design</h4>
@@ -367,7 +370,7 @@
         </div>
 
         <!-- 02: Design Verification / SoC Verification -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-dv">
           <div class="step-num">02</div>
           <div class="step-glow"></div>
           <h4>Design Verification / SoC Verification</h4>
@@ -375,7 +378,7 @@
         </div>
 
         <!-- 03: Design for Testability (DFT) -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-dft">
           <div class="step-num">03</div>
           <div class="step-glow"></div>
           <h4>Design for Testability (DFT)</h4>
@@ -383,15 +386,15 @@
         </div>
 
         <!-- 04: Physical Design  -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-pd">
           <div class="step-num">04</div>
           <div class="step-glow"></div>
-          <h4>Physical Design </h4>
+          <h4>Physical Design</h4>
           <p>We provide end-to-end physical design and timing closure solutions, covering floorplanning, placement, clock tree synthesis, routing, and sign-off analysis. Our methodologies optimize PPA while ensuring timing convergence and implementation readiness.</p>
         </div>
 
         <!-- 05: Physical Verification -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-pv">
           <div class="step-num">05</div>
           <div class="step-glow"></div>
           <h4>Physical Verification</h4>
@@ -399,7 +402,7 @@
         </div>
 
         <!-- 06: Analog Circuit Design / Analog Layout Design -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-analog">
           <div class="step-num">06</div>
           <div class="step-glow"></div>
           <h4>Analog Circuit Design / Analog Layout Design</h4>
@@ -407,7 +410,7 @@
         </div>
 
         <!-- 07: Advanced STA & Timing Closure -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-sta">
           <div class="step-num">07</div>
           <div class="step-glow"></div>
           <h4>Advanced STA & Timing Closure</h4>
@@ -415,16 +418,16 @@
         </div>
 
         <!-- 08: EMIR Analysis -->
-        <div class="roadmap-step">
+        <div class="roadmap-step" id="domain-emir">
           <div class="step-num">08</div>
           <div class="step-glow"></div>
           <h4>EMIR Analysis</h4>
           <p>We support power integrity analysis to evaluate electromigration (EM) and IR-drop risks across the power delivery network. Our focus includes static and dynamic IR-drop analysis, current-density evaluation, power-grid integrity, and identifying potential reliability issues to support robust silicon implementation.</p>
         </div>
-
       </div>
     </div>
   </section>
+
 
 
 
@@ -788,9 +791,11 @@
     </div>
   </section>
 
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
+      <!-- Col 1: Brand & Socials -->
       <div class="footer-col brand-col">
         <a href="index.html" class="brand">
           <div class="brand-name">
@@ -802,7 +807,6 @@
           A premier semiconductor service-based company delivering turnkey VLSI engineering, ASIC design, and physical implementation. Powering end-to-end silicon solutions from <strong>Visakhapatnam, Andhra Pradesh, India</strong> for leading design houses and fabless enterprises across India.
         </p>
 
-        <!-- Social Media Chips -->
         <div class="social-chips">
           <a href="https://www.linkedin.com/company/145368124" class="social-chip" title="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i class="fa-brands fa-linkedin"></i>
@@ -819,24 +823,31 @@
         </div>
       </div>
 
-      <!-- <div class="footer-col">
-        <h5>Consultancy Core</h5>
-        <a href="#about-us">RTL Architecture</a>
-        <a href="#about-us">UVM Constrained Verification</a>
-        <a href="#about-us">Sub-3nm Physical Design</a>
-        <a href="#about-us">Static Timing Signoff (STA)</a>
-        <a href="#about-us">Analog Layout Services</a>
+      <!-- Col 2: Direct Page Navigators -->
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="#about-us">About MosGrid</a>
+        <a href="#vizag-hub">Vizag R&D Hub</a>
+        <a href="#pipeline">Career Pipeline</a>
+        <a href="#openings">Active Openings</a>
+        <a href="#apply">Candidate Portal</a>
+        <a href="#contact">Contact Silicon Desk</a>
       </div>
 
+      <!-- Col 3: Direct Card Links -->
       <div class="footer-col">
-        <h5>Domestic Hub Pathways</h5>
-        <a href="#openings">Hyderabad Design Hub</a>
-        <a href="#openings">Bangalore Tech Corridor</a>
-        <a href="#openings">Chennai Silicon Center</a>
-        <a href="#openings">Noida Core Campus</a>
-        <a href="#openings">Andhra Pradesh Graduate Batch</a>
-      </div> -->
+        <h5>VLSI Capabilities</h5>
+        <a href="#domain-rtl">RTL / FPGA Design</a>
+        <a href="#domain-dv">Design Verification (DV)</a>
+        <a href="#domain-pd">Physical Design (PD)</a>
+        <a href="#domain-dft">Design for Testability (DFT)</a>
+        <a href="#domain-pv">Physical Verification</a>
+        <a href="#domain-analog">Analog Layout Design</a>
+        <a href="#domain-sta">Advanced STA Closure</a>
+        <a href="#domain-emir">EMIR Analysis</a>
+      </div>
 
+      <!-- Col 4: Operations & Location -->
       <div class="footer-col">
         <h5>Headquarters & Operations</h5>
         <p class="footer-addr">
@@ -851,13 +862,16 @@
       </div>
     </div>
 
+    <!-- Legal Bar -->
     <div class="footer-bar">
       <div class="container footer-bar-inner">
         <span>
           &copy; 2026 MosGrid Technologies Pvt Ltd. &bull; Visakhapatnam, Andhra Pradesh, India.<br />All rights reserved.
         </span>
         <div class="legal-links">
-          <a href="#contact"> Get In Touch</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="#contact">Get In Touch</a>
         </div>
       </div>
 
@@ -867,7 +881,3 @@
       </div>
     </div>
   </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
