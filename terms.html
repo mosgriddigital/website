@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions | MosGrid Technologies</title>
+  <meta name="description" content="Official Terms and Conditions for MosGrid Technologies Pvt Ltd. Governing VLSI engineering services, talent placement programs, and platform access." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png?v=3" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .terms-hero {
+      padding: 4.5rem 0 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+      padding: 4rem 0 6rem;
+      align-items: start;
+    }
+    .terms-sidebar {
+      position: sticky;
+      top: 100px;
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      backdrop-filter: blur(12px);
+    }
+    .terms-sidebar h4 {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .terms-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .terms-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .terms-nav a:hover {
+      color: var(--electric-cyan);
+      background: rgba(0, 240, 255, 0.05);
+      transform: translateX(4px);
+    }
+    .terms-nav a i {
+      font-size: 0.75rem;
+      color: var(--electric-cyan);
+      opacity: 0.7;
+    }
+    .terms-content {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      backdrop-filter: blur(14px);
+    }
+    .terms-section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 120px;
+    }
+    .terms-section:last-child {
+      margin-bottom: 0;
+    }
+    .terms-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .terms-section h3 span.num {
+      font-family: var(--font-mono);
+      color: var(--electric-cyan);
+      font-size: 1.1rem;
+    }
+    .terms-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .terms-section ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+    .terms-section ul li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+    .terms-section ul li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--matrix-green);
+      font-size: 0.85rem;
+      top: 2px;
+    }
+    .legal-callout {
+      background: rgba(0, 240, 255, 0.04);
+      border-left: 3px solid var(--electric-cyan);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .legal-callout p {
+      margin: 0;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 992px) {
+      .terms-grid {
+        grid-template-columns: 1fr;
+      }
+      .terms-sidebar {
+        display: none;
+      }
+      .terms-content {
+        padding: 2.2rem 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-theme">
+
+  <!-- Interactive Silicon Circuit Canvas -->
+  <canvas id="circuit-canvas"></canvas>
+
+  <!-- Ambient Electron Aura -->
+  <div class="cursor-aura" id="cursorAura"></div>
+
+  <!-- Global Live Ticker -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><i class="fa-solid fa-shield-halved text-green"></i> <strong>Legal Governance:</strong> Governing VLSI engineering, ASIC turnkey contracts, and corporate partner NDAs.</span>
+      <span class="ticker-item"><i class="fa-solid fa-file-contract text-cyan"></i> <strong>IP Security:</strong> Client silicon blueprints, PDKs, and RTL codebases are strictly safeguarded.</span>
+      <span class="ticker-item"><i class="fa-solid fa-microchip text-green"></i> <strong>Visakhapatnam HQ:</strong> Governing talent deployment pipelines across Bengaluru, Hyderabad, Chennai, and Noida.</span>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-name">
+          <img src="assets/logos/logo.svg" alt="Mosgrid Logo" class="brand-logo-img" />
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="index.html#about-us" class="nav-link"><i class="fa-solid fa-cube"></i> About Us</a>
+        <a href="index.html#openings" class="nav-link"><i class="fa-solid fa-globe"></i> Openings</a>
+        <a href="index.html#apply" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> Registration</a>
+        <a href="index.html#contact" class="nav-link"><i class="fa-solid fa-headset"></i> Contact Us</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="mobile-hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Terms Hero -->
+  <section class="terms-hero">
+    <div class="container">
+      <span class="chip-tag"><i class="fa-solid fa-file-contract"></i> LEGAL AGREEMENT</span>
+      <h1 class="hero-heading" style="margin-bottom: 0.8rem;">
+        Terms & <span class="electric-text">Conditions</span>
+      </h1>
+      <p class="hero-subtext" style="max-width: 750px; margin-bottom: 0;">
+        Effective Date: <strong>January 1, 2026</strong> &bull; Governs access to services and platform operations provided by MosGrid Technologies Pvt. Ltd., Visakhapatnam, India.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Terms Grid -->
+  <section class="container terms-grid">
+    <!-- Navigation Sidebar -->
+    <aside class="terms-sidebar">
+      <h4>Sections</h4>
+      <nav class="terms-nav">
+        <a href="#term-1"><i class="fa-solid fa-angle-right"></i> 1. Acceptance</a>
+        <a href="#term-2"><i class="fa-solid fa-angle-right"></i> 2. Engineering Services</a>
+        <a href="#term-3"><i class="fa-solid fa-angle-right"></i> 3. IP & PDK Protection</a>
+        <a href="#term-4"><i class="fa-solid fa-angle-right"></i> 4. Talent Placement</a>
+        <a href="#term-5"><i class="fa-solid fa-angle-right"></i> 5. Portal Use & Security</a>
+        <a href="#term-6"><i class="fa-solid fa-angle-right"></i> 6. Liability Disclaimers</a>
+        <a href="#term-7"><i class="fa-solid fa-angle-right"></i> 7. Jurisdiction</a>
+      </nav>
+    </aside>
+
+    <!-- Document Content -->
+    <main class="terms-content">
+      <article class="terms-section" id="term-1">
+        <h3><span class="num">01.</span> Acceptance of Terms</h3>
+        <p>
+          By accessing or utilizing any web service, engineering portal, candidate application pipeline, or consulting engagement offered by <strong>MosGrid Technologies Pvt. Ltd.</strong> ("MosGrid", "the Company"), you agree to be bound by these Terms and Conditions.
+        </p>
+        <p>
+          If you do not agree with any provision stated herein, you must cease use of our services and candidate submission portals immediately.
+        </p>
+      </article>
+
+      <article class="terms-section" id="term-2">
+        <h3><span class="num">02.</span> VLSI Engineering & Consultancy Engagements</h3>
+        <p>
+          All semiconductor engineering services—including RTL architecture, Design Verification (DV), Design for Testability (DFT), Physical Design (PD), Analog Layout, and Static Timing Analysis (STA)—are executed under bilateral Statements of Work (SOW) or master service agreements.
+        </p>
+        <ul>
+          <li>Project schedules, deliverables, milestone acceptance criteria, and toolchain configurations are defined strictly within individual contract agreements.</li>
+          <li>Modifications to design scope, PDK transitions, or foundry sign-off requirements must be agreed upon in writing.</li>
+        </ul>
+      </article>
+
+      <article class="terms-section" id="term-3">
+        <h3><span class="num">03.</span> Intellectual Property & Confidentiality</h3>
+        <p>
+          Semiconductor development requires rigorous intellectual property safeguards:
+        </p>
+        <ul>
+          <li><strong>Client IP Ownership:</strong> All custom netlists, RTL source codes, constraint setups, and design floorplans provided by our clients remain their exclusive intellectual property.</li>
+          <li><strong>MosGrid Tooling IP:</strong> Pre-existing internal automation scripts, EDA flow wrappers, and pedagogical modules remain the intellectual property of MosGrid Technologies.</li>
+          <li><strong>NDA Priority:</strong> Executed Non-Disclosure Agreements supersede these terms regarding specific silicon designs, tape-out specifications, or foundry secrets.</li>
+        </ul>
+      </article>
+
+      <article class="terms-section" id="term-4">
+        <h3><span class="num">04.</span> Talent Registration & Candidate Placement</h3>
+        <p>
+          Candidates submitting profiles through the Candidate Portal agree to the following obligations:
+        </p>
+        <div class="legal-callout">
+          <p>
+            <strong>Accuracy of Information:</strong> Applicants warrant that all credentials, educational degrees, work history, CAD/EDA skill self-evaluations, and resume documents submitted are accurate, truthful, and free of misrepresentation.
+          </p>
+        </div>
+        <ul>
+          <li>Submission of a profile does not create an employment contract or guarantee an immediate job offer.</li>
+          <li>MosGrid acts as an engineering talent consultancy matching vetted engineers with domestic partner design houses and core semiconductor enterprises.</li>
+          <li>Any candidate found to have submitted falsified experience or fraudulent certifications will face immediate disqualification.</li>
+        </ul>
+      </article>
+
+      <article class="terms-section" id="term-5">
+        <h3><span class="num">05.</span> Platform Use & Security Restrictions</h3>
+        <p>
+          When utilizing the MosGrid platform or dropzone upload endpoints, you agree not to:
+        </p>
+        <ul>
+          <li>Upload executable binaries, malware, corrupted archives, or files exceeding the 10MB limit.</li>
+          <li>Utilize automated crawlers, scrapers, or bot scripts to harvest job postings or candidate data.</li>
+          <li>Interfere with or bypass server security, rate limiters, or Google Apps Script API endpoints.</li>
+        </ul>
+      </article>
+
+      <article class="terms-section" id="term-6">
+        <h3><span class="num">06.</span> Limitation of Liability</h3>
+        <p>
+          To the maximum extent permitted under applicable law, MosGrid Technologies Pvt. Ltd. shall not be liable for any indirect, incidental, or consequential damages resulting from platform downtime, tape-out fab delays attributable to third-party foundries, or hiring decisions made by third-party partner enterprises.
+        </p>
+      </article>
+
+      <article class="terms-section" id="term-7">
+        <h3><span class="num">07.</span> Governing Law & Jurisdiction</h3>
+        <p>
+          These Terms and Conditions are governed by and construed in accordance with the laws of the Republic of India.
+        </p>
+        <div class="legal-callout" style="border-left-color: var(--matrix-green);">
+          <p>
+            <strong>Jurisdiction:</strong> Any dispute, controversy, or claim arising out of or relating to these terms shall be subject to the exclusive jurisdiction of the competent courts located in <strong>Visakhapatnam, Andhra Pradesh, India</strong>.
+          </p>
+        </div>
+      </article>
+    </main>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Col 1: Brand & Socials -->
+      <div class="footer-col brand-col">
+        <a href="index.html" class="brand">
+          <div class="brand-name">
+            <img src="assets/logos/logo.svg" alt="Mosgrid Semiconductor Logo" class="brand-logo-img" />
+          </div>
+        </a>
+
+        <p>
+          A premier semiconductor service-based company delivering turnkey VLSI engineering, ASIC design, and physical implementation. Powering end-to-end silicon solutions from <strong>Visakhapatnam, Andhra Pradesh, India</strong> for leading design houses and fabless enterprises across India.
+        </p>
+
+        <div class="social-chips">
+          <a href="https://www.linkedin.com/company/145368124" class="social-chip" title="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/mosgridtechnologies/" class="social-chip" title="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="mailto:info@mosgrid.in" class="social-chip" title="Email Us" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61595372404268" class="social-chip" title="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Direct Page Navigators -->
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="index.html#about-us">About MosGrid</a>
+        <a href="index.html#vizag-hub">Vizag R&D Hub</a>
+        <a href="index.html#pipeline">Career Pipeline</a>
+        <a href="index.html#openings">Active Openings</a>
+        <a href="index.html#apply">Candidate Portal</a>
+        <a href="index.html#contact">Contact Silicon Desk</a>
+      </div>
+
+      <!-- Col 3: Direct Card Links -->
+      <div class="footer-col">
+        <h5>VLSI Capabilities</h5>
+        <a href="index.html#domain-rtl">RTL / FPGA Design</a>
+        <a href="index.html#domain-dv">Design Verification (DV)</a>
+        <a href="index.html#domain-pd">Physical Design (PD)</a>
+        <a href="index.html#domain-dft">Design for Testability (DFT)</a>
+        <a href="index.html#domain-pv">Physical Verification</a>
+        <a href="index.html#domain-analog">Analog Layout Design</a>
+        <a href="index.html#domain-sta">Advanced STA Closure</a>
+        <a href="index.html#domain-emir">EMIR Analysis</a>
+      </div>
+
+      <!-- Col 4: Operations & Location -->
+      <div class="footer-col">
+        <h5>Headquarters & Operations</h5>
+        <p class="footer-addr">
+          <i class="fa-solid fa-location-dot text-cyan"></i> <strong>Global Headquarters:</strong><br />
+          MosGrid Technologies Pvt Ltd.<br />
+          Visakhapatnam, Andhra Pradesh, India.
+        </p>
+        <p class="footer-addr">
+          <i class="fa-solid fa-envelope text-cyan"></i> <strong>Official Inquiries:</strong><br />
+          <a href="mailto:info@mosgrid.in" style="color: var(--electric-cyan); text-decoration: none;">info@mosgrid.in</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Legal Bar -->
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>
+          &copy; 2026 MosGrid Technologies Pvt Ltd. &bull; Visakhapatnam, Andhra Pradesh, India.<br />All rights reserved.
+        </span>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="index.html#contact">Get In Touch</a>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding-top: 12px; margin-top: 10px; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+        Designed &amp; Developed by 
+        <a href="https://www.fusebridge.in" target="_blank" rel="noopener noreferrer" style="color: #dd692e; text-decoration: none; font-weight: 600;">FuseBridge</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

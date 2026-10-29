@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MosGrid Technologies</title>
+  <meta name="description" content="Visakhapatnam's premier VLSI engineering consultancy and career launchpad. Sub-3nm design execution, student upskilling, and core semiconductor placement across India." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png?v=3" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-theme">
+
+  <!-- Interactive Silicon Circuit Canvas (Ortho Manhattan Traces) -->
+  <canvas id="circuit-canvas"></canvas>
+
+  <!-- Smooth Ambient Electron Aura -->
+  <div class="cursor-aura" id="cursorAura"></div>
+
+  <!-- Global Live Ticker -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><i class="fa-solid fa-microchip text-green"></i> <strong>MosGrid Visakhapatnam:</strong> Catalyzing Andhra Pradesh’s semiconductor design, VLSI innovation, and indigenous electronics talent.</span>
+      <span class="ticker-item"><i class="fa-solid fa-flag text-green"></i> <strong>India Semiconductor Mission 2.0:</strong> Strengthening India’s semiconductor design and manufacturing ecosystem.</span>
+      <span class="ticker-item"><i class="fa-solid fa-layer-group text-green"></i> <strong>Advanced Chip Packaging:</strong> Chiplets and 3D integration are shaping next-generation semiconductor technology.</span>
+      <span class="ticker-item"><i class="fa-solid fa-microchip text-green"></i> <strong>Indigenous Chip Design:</strong> RISC-V and domestic chip-design initiatives are driving India’s semiconductor innovation.</span>    
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-name">
+          <img src="assets/logos/logo.svg" alt="Mosgrid Logo" class="brand-logo-img" />
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about-us" class="nav-link"><i class="fa-solid fa-cube"></i> About Us</a>
+        <a href="#pipeline" class="nav-link"><i class="fa-solid fa-route"></i> Career Pipeline</a>
+        <a href="#openings" class="nav-link"><i class="fa-solid fa-globe"></i> Careers</a>
+        <a href="#apply" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> Registration</a>
+        <a href="#contact" class="nav-link"><i class="fa-solid fa-headset"></i> Contact Us</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="mobile-hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-layout">
+      <div class="hero-left">
+        <h1 class="hero-heading">
+          From <span class="electric-text">Visakhapatnam</span> <br />
+          To the Future of <span class="electric-text">Semiconductor Innovation.</span>
+        </h1>
+        <p class="hero-subtext">
+          Headquartered in <strong>Visakhapatnam, Andhra Pradesh, India</strong>, MosGrid Technologies is building a robust semiconductor engineering ecosystem through <strong>VLSI design services, technical consulting, and talent solutions</strong>. We bridge skilled Indian engineering talent with high-impact core opportunities while empowering semiconductor enterprises to scale capabilities, accelerate chip tape-outs, and drive forward-thinking innovation.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#openings" class="btn btn-primary btn-large">
+            <i class="fa-solid fa-passport"></i> Explore Roles
+          </a>
+          <a href="#about-us" class="btn btn-glass btn-large">
+            <i class="fa-solid fa-microchip"></i> Departments
+          </a>
+        </div>
+      </div>
+
+      <!-- 3D Gyroscopic Silicon Die Hero Graphic (Advanced Animated SoC) -->
+      <div class="hero-right">
+        <div class="silicon-stage" id="siliconStage">
+          <div class="silicon-die" id="siliconDie">
+            <!-- Organic Substrate Carrier with SMD Passives -->
+            <div class="chip-substrate">
+              <div class="substrate-notch"></div>
+              
+              <!-- Decoupling SMD Capacitor Arrays -->
+              <div class="smd-bank smd-top"></div>
+              <div class="smd-bank smd-bottom"></div>
+              <div class="smd-bank smd-left"></div>
+              <div class="smd-bank smd-right"></div>
+
+              <!-- Silicon Interposer & Chiplet Package -->
+              <div class="chip-interposer">
+                <div class="bga-pin-ring"></div>
+
+                <!-- Active Silicon Die Layer -->
+                <div class="active-silicon-die">
+                  <!-- Die Floorplan: Multi-Cluster Core Architecture -->
+                  <div class="die-floorplan">
+                    <div class="core-cell compute-core">
+                      <span class="core-lbl">RISC-V 01</span>
+                      <div class="gate-mesh"></div>
+                    </div>
+                    <div class="core-cell compute-core">
+                      <span class="core-lbl">RISC-V 02</span>
+                      <div class="gate-mesh"></div>
+                    </div>
+                    <div class="core-cell memory-core">
+                      <span class="core-lbl">HBM3e</span>
+                      <div class="memory-grid"></div>
+                    </div>
+                    <div class="core-cell memory-core">
+                      <span class="core-lbl">L3 SRAM</span>
+                      <div class="memory-grid"></div>
+                    </div>
+                  </div>
+
+                  <!-- Central Heat Spreader / Silicon Inscription -->
+                  <div class="die-center-spreader">
+                    <div class="spreader-glow"></div>
+                    <i class="fa-solid fa-microchip spreader-icon"></i>
+                    <div class="spreader-title">MOSGRID <span class="spreader-node">2nm</span></div>
+                    <div class="spreader-meta">SOC-X1 &bull; 2.5 GHz &bull; TAPE-OUT</div>
+                  </div>
+
+                  <!-- High-Speed Orthogonal Bus Traces -->
+                  <div class="bus-trace trace-h trace-1"></div>
+                  <div class="bus-trace trace-h trace-2"></div>
+                  <div class="bus-trace trace-v trace-3"></div>
+                  <div class="bus-trace trace-v trace-4"></div>
+
+                  <!-- Animated Laser Scan Beam -->
+                  <div class="die-scan-beam"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Specular Optical Reflection -->
+            <div class="hologram-specular"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Services Section -->
+  <section class="section" id="about-us">
+    <div class="container">
+      <div class="section-header">
+        <span class="chip-tag"><i class="fa-solid fa-layer-group"></i> ABOUT US</span>
+        <h2>About MosGrid Technologies</h2>
+        <p>
+          Headquartered in Visakhapatnam, Andhra Pradesh, India, <span class="electric-text">MosGrid Technologies</span> delivers semiconductor engineering services, VLSI solutions, technical consulting, and talent solutions to support the evolving global chip industry.
+        </p>
+      </div>
+
+      <div class="spotlight-grid">
+        <div class="spotlight-card">
+          <div class="card-content">
+            <div class="icon-orb"><i class="fa-solid fa-microchip"></i></div>
+            <h3>VLSI Design Services</h3>
+            <p>
+              MosGrid Technologies provides VLSI design, implementation, and tailored engineering support throughout the chip development lifecycle. We help semiconductor teams meet project goals with reliable, efficient execution. Our expertise adapts to evolving project needs.
+            </p>
+            <div class="tech-tags">
+              <span>ASIC</span> <span>RTL-GDS II</span><span>SoC</span><span>EDA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-card">
+          <div class="card-content">
+            <div class="icon-orb"><i class="fa-solid fa-diagram-project"></i></div>
+            <h3>Core VLSI Engineering</h3>
+            <p>
+             MosGrid Technologies delivers semiconductor engineering solutions across the core VLSI design and development lifecycle. Our focus is on quality-driven engineering, efficient execution, and meeting evolving semiconductor industry requirements.
+            </p>
+            <div class="tech-tags">
+              <span>RTL</span><span>DV</span><span>DFT</span><span>PD</span><span>PV</span><span>ALD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-card">
+          <div class="card-content">
+            <div class="icon-orb"><i class="fa-solid fa-users"></i></div>
+            <h3>Semiconductor Talent</h3>
+            <p>
+              MosGrid Technologies helps semiconductor companies access specialized VLSI talent through technical recruitment, talent sourcing, and engineering resource deployment. We help businesses find the right engineering talent to meet project requirements, accelerate development, and build capable semiconductor teams.
+            </p>
+            <div class="tech-tags">
+              <span>VLSI Talent</span><span>Recruitment</span><span>Staffing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-card">
+          <div class="card-content">
+            <div class="icon-orb"><i class="fa-solid fa-handshake"></i></div>
+            <h3>MosGrid's Approach</h3>
+            <p>
+              MosGrid Technologies delivers talent solutions tailored to industry requirements. We work closely to understand project needs, provide specialized technical expertise, and support efficient project execution.
+            </p>
+            <div class="tech-tags">
+              <span>Engineering</span><span>Project Support</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-card">
+          <div class="card-content">
+            <div class="icon-orb"><i class="fa-solid fa-gears"></i></div>
+            <h3>EDA & Design Automation</h3>
+            <p>
+              Building toward automation-driven engineering workflows and technology solutions that improve design productivity, streamline repetitive tasks, and support efficient semiconductor development.
+            </p>
+            <div class="tech-tags">
+              <span>EDA</span><span>Automation</span><span>Optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotlight-card">
+          <div class="card-content">
+            <div class="icon-orb"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Innovation & Technology Development</h3>
+            <p>
+              Focused on creating opportunities for engineering talent and developing future technology capabilities across semiconductor IP, software tools, and engineering-led product innovation.
+            </p>
+            <div class="tech-tags">
+              <span>R&D</span><span>Semiconductor IP</span><span>Innovation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visakhapatnam HQ & India Tech Radar Section -->
+  <section class="section alt-bg" id="vizag-hub">
+    <div class="container">
+      <div class="spotlight-card vizag-banner-card">
+        <div class="vizag-grid">
+          <div class="vizag-info">
+            <span class="chip-tag"><i class="fa-solid fa-location-dot"></i> VISAKHAPATNAM HQ</span>
+            <h2>India’s Semiconductor Hub</h2>
+            <p>
+              Headquartered in <strong>Visakhapatnam, Andhra Pradesh</strong>, MosGrid Technologies powers end-to-end VLSI design, physical implementation, and specialized talent deployment seamlessly connecting Indian semiconductor talent directly with tier-one design centers and fabless enterprises across India.
+            </p>
+            <div class="vizag-highlights">
+              <div class="v-item">
+                <i class="fa-solid fa-city text-cyan"></i>
+                <div>
+                  <strong>Global Headquarters</strong>
+                  <span>Visakhapatnam, Andhra Pradesh &bull; Silicon Design & Engineering Center</span>
+                </div>
+              </div>
+              <div class="v-item">
+                <i class="fa-solid fa-microchip text-green"></i>
+                <div>
+                  <strong>VLSI-R&D Centre </strong>
+                  <span>The MosGrid VLSI R&D Center delivers expert design and adaptive engineering support throughout the chip development lifecycle.</span>
+                </div>
+              </div>
+              <div class="v-item">
+                <i class="fa-solid fa-network-wired text-purple"></i>
+                <div>
+                  <strong>Pan-India Talent Network</strong>
+                  <span>Direct engineering placement across major hubs: Hyderabad, Bengaluru, Noida, and Chennai</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vizag-radar">
+            <div class="radar-circle">
+              <div class="radar-sweep"></div>
+              <div class="radar-dot dot-vizag"></div>
+
+              <div class="radar-dot dot-munich" title="Bangalore">
+                <span class="dot-label-sub">Bangalore</span>
+              </div>
+              <div class="radar-dot dot-noida" title="Noida">
+                <span class="dot-label-sub">Noida</span>
+              </div>
+              <div class="radar-dot dot-hyderabad" title="Hyderabad">
+                <span class="dot-label-sub">Hyderabad</span>
+              </div>
+              <div class="radar-dot dot-taiwan" title="Chennai">
+                <span class="dot-label-sub">Chennai</span>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6-Domain VLSI Engineering & Acceleration Section -->
+  <section class="section" id="pipeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="chip-tag"><i class="fa-solid fa-route"></i> THE MOSGRID ACCELERATOR</span>
+        <h2>How We Accelerate VLSI Engineering Careers in India</h2>
+        <p>A structured, tape-out-driven pathway bridging foundational silicon concepts to core industry deployment across India.</p>
+      </div>
+
+      <div class="roadmap-track">
+        <!-- 01: RTL / FPGA Design -->
+        <div class="roadmap-step" id="domain-rtl">
+          <div class="step-num">01</div>
+          <div class="step-glow"></div>
+          <h4>RTL / FPGA Design</h4>
+          <p>We deliver high-performance RTL design and FPGA development solutions, translating complex system specifications into robust, synthesizable digital architectures. Our focus is on design efficiency, scalability, and optimized power, performance, and area (PPA).</p>
+        </div>
+
+        <!-- 02: Design Verification / SoC Verification -->
+        <div class="roadmap-step" id="domain-dv">
+          <div class="step-num">02</div>
+          <div class="step-glow"></div>
+          <h4>Design Verification / SoC Verification</h4>
+          <p>We provide comprehensive IP, block-level, and SoC verification services to ensure functional correctness and design robustness. Leveraging advanced verification methodologies, we help achieve high functional coverage, early bug detection, and first-time-right silicon.</p>
+        </div>
+
+        <!-- 03: Design for Testability (DFT) -->
+        <div class="roadmap-step" id="domain-dft">
+          <div class="step-num">03</div>
+          <div class="step-glow"></div>
+          <h4>Design for Testability (DFT)</h4>
+          <p>We offer end-to-end DFT solutions that enhance chip testability, improve manufacturing yield, and ensure product reliability. Our expertise includes scan insertion, ATPG, MBIST, and test coverage optimization for production-ready silicon.</p>
+        </div>
+
+        <!-- 04: Physical Design  -->
+        <div class="roadmap-step" id="domain-pd">
+          <div class="step-num">04</div>
+          <div class="step-glow"></div>
+          <h4>Physical Design</h4>
+          <p>We provide end-to-end physical design and timing closure solutions, covering floorplanning, placement, clock tree synthesis, routing, and sign-off analysis. Our methodologies optimize PPA while ensuring timing convergence and implementation readiness.</p>
+        </div>
+
+        <!-- 05: Physical Verification -->
+        <div class="roadmap-step" id="domain-pv">
+          <div class="step-num">05</div>
+          <div class="step-glow"></div>
+          <h4>Physical Verification</h4>
+          <p>We deliver precision-driven physical verification services to ensure layout integrity and compliance with foundry design rules. Our expertise includes DRC, LVS, ERC, and sign-off verification to support reliable, manufacturable, and tape-out-ready designs.</p>
+        </div>
+
+        <!-- 06: Analog Circuit Design / Analog Layout Design -->
+        <div class="roadmap-step" id="domain-analog">
+          <div class="step-num">06</div>
+          <div class="step-glow"></div>
+          <h4>Analog Circuit Design / Analog Layout Design</h4>
+          <p>We specialize in analog and mixed-signal circuit design, developing precision-engineered solutions tailored to demanding performance requirements. Our analog layout expertise emphasizes device matching, parasitic control, noise minimization, and layout optimization for robust silicon performance.</p>
+        </div>
+
+        <!-- 07: Advanced STA & Timing Closure -->
+        <div class="roadmap-step" id="domain-sta">
+          <div class="step-num">07</div>
+          <div class="step-glow"></div>
+          <h4>Advanced STA & Timing Closure</h4>
+          <p>We provide timing analysis and closure support to ensure reliable chip performance across operating conditions. Our expertise includes setup and hold analysis, timing constraints validation, MCMM analysis, clock skew evaluation, and timing optimization to achieve design frequency targets.</p>
+        </div>
+
+        <!-- 08: EMIR Analysis -->
+        <div class="roadmap-step" id="domain-emir">
+          <div class="step-num">08</div>
+          <div class="step-glow"></div>
+          <h4>EMIR Analysis</h4>
+          <p>We support power integrity analysis to evaluate electromigration (EM) and IR-drop risks across the power delivery network. Our focus includes static and dynamic IR-drop analysis, current-density evaluation, power-grid integrity, and identifying potential reliability issues to support robust silicon implementation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filterable Openings Section -->
+  <section class="section alt-bg" id="openings">
+    <div class="container">
+      <div class="section-header">
+        <span class="chip-tag"><i class="fa-solid fa-briefcase"></i> CAREER OPPORTUNITIES</span>
+        <h2>Active Domestic Core Openings</h2>
+        <p>Explore high-impact VLSI roles across India’s leading chip design hubs and fabless centers.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Openings</button>
+        <button class="filter-btn" data-filter="hyderabad"><i class="fa-solid fa-location-dot"></i> Hyderabad</button>
+        <button class="filter-btn" data-filter="bangalore"><i class="fa-solid fa-location-dot"></i> Bangalore</button>
+        <button class="filter-btn" data-filter="chennai"><i class="fa-solid fa-location-dot"></i> Chennai</button>
+        <button class="filter-btn" data-filter="noida"><i class="fa-solid fa-location-dot"></i> Noida</button>
+        <button class="filter-btn" data-filter="fresher"><i class="fa-solid fa-seedling"></i> Freshers / Students</button>
+      </div>
+
+      <div class="jobs-list" id="jobsGrid">
+        <!-- Job 1 -->
+              <div class="job-row" data-category="bangalore hyderabad noida">
+                <div class="job-meta">
+                  <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Hyderabad / Noida</span>
+                  <h3>Senior Physical Design Engineer</h3>
+                  <span class="job-exp">4+ yrs Experience &bull; Lower Node FinFET &bull; Cadence Innovus Flow</span>
+                </div>
+                <div class="job-tags">
+                  <span class="badge-tag">Cadence Innovus</span>
+                  <span class="badge-tag">Multi-City Hub</span>
+                  <span class="badge-tag tag-accent">Lower Node Track</span>
+                </div>
+                <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Senior Physical Design Engineer">Apply Now</a>
+              </div>
+
+        <!-- Job 2 -->
+              <div class="job-row" data-category="bangalore">
+                <div class="job-meta">
+                  <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Bangalore, Karnataka</span>
+                  <h3>Lead RTL Design Engineer</h3>
+                  <span class="job-exp">8+ yrs Experience &bull; Microarchitecture &amp; Synthesizable RTL &bull; SoC Integration</span>
+                </div>
+                <div class="job-tags">
+                  <span class="badge-tag">Bangalore Hub</span>
+                  <span class="badge-tag tag-accent">Lead Role (8+ yrs)</span>
+                  <span class="badge-tag">ASIC / SoC Architecture</span>
+                </div>
+                <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Lead RTL Design Engineer">Apply Now</a>
+              </div>
+
+       <!-- Job 3 -->
+              <div class="job-row" data-category="hyderabad">
+                <div class="job-meta">
+                  <span class="job-location"><i class="fa-solid fa-location-dot"></i> Hyderabad, Telangana</span>
+                  <h3>Senior Memory Layout Engineer</h3>
+                  <span class="job-exp">3+ yrs Experience &bull; Custom SRAM / Register File Layout &bull; FinFET DRC/LVS Sign-off</span>
+                </div>
+                <div class="job-tags">
+                  <span class="badge-tag">Hyderabad Hub</span>
+                  <span class="badge-tag tag-accent">Memory Layout (3+ yrs)</span>
+                  <span class="badge-tag">Custom SRAM / FinFET</span>
+                </div>
+                <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Senior Memory Layout Engineer">Apply Now</a>
+              </div>
+
+        <!-- Job 4 -->
+              <div class="job-row" data-category="bangalore hyderabad">
+                <div class="job-meta">
+                  <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Hyderabad</span>
+                  <h3>DFT Engineer</h3>
+                  <span class="job-exp">3+ yrs Experience &bull; ATPG &bull; Scan Insertion &amp; Compression &bull; MBIST</span>
+                </div>
+                <div class="job-tags">
+                  <span class="badge-tag">Multi-City Hub</span>
+                  <span class="badge-tag tag-accent">ATPG &amp; Scan</span>
+                  <span class="badge-tag">MBIST Architecture</span>
+                </div>
+                <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for DFT Engineer">Apply Now</a>
+              </div>
+
+        <!-- Job 5 -->
+              <div class="job-row" data-category="bangalore hyderabad">
+                <div class="job-meta">
+                  <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Hyderabad</span>
+                  <h3>Design Verification Engineer</h3>
+                  <span class="job-exp">3+ yrs Experience &bull; PCIe, DDR, Ethernet Protocols &bull; Cadence Toolchain</span>
+                </div>
+                <div class="job-tags">
+                  <span class="badge-tag">Multi-City Center</span>
+                  <span class="badge-tag tag-accent">PCIe / DDR / Ethernet</span>
+                  <span class="badge-tag">Cadence EDA Flow</span>
+                </div>
+                <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Design Verification Engineer">Apply Now</a>
+              </div>
+
+      <!-- Job 6 -->
+
+              <div class="job-row" data-category="bangalore">
+                <div class="job-meta">
+                  <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Bangalore, Karnataka</span>
+                  <h3>SoC Verification Engineer</h3>
+                  <span class="job-exp">4+ yrs Experience &bull; AMBA Protocols (AXI, AHB) &bull; Subsystem &amp; Full-Chip Verification</span>
+                </div>
+                <div class="job-tags">
+                  <span class="badge-tag">Bangalore Hub</span>
+                  <span class="badge-tag tag-accent">AMBA AXI &amp; AHB</span>
+                  <span class="badge-tag">SoC Verification</span>
+                </div>
+                <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for SoC Verification Engineer">Apply Now</a>
+              </div>
+      <!-- Job 7 -->
+                    <div class="job-row" data-category="noida hyderabad">
+                <div class="job-meta">
+                  <span class="job-location"><i class="fa-solid fa-location-dot"></i> Noida / Hyderabad</span>
+                  <h3>Senior STA Engineer</h3>
+                  <span class="job-exp">4+ yrs Experience &bull; Static Timing Analysis &bull; Synopsys PrimeTime &amp; Cadence Tempus</span>
+                </div>
+                <div class="job-tags">
+                  <span class="badge-tag">Multi-City Center</span>
+                  <span class="badge-tag tag-accent">PrimeTime &amp; Tempus</span>
+                  <span class="badge-tag">Timing Sign-off &amp; MCMM</span>
+                </div>
+                <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Senior STA Engineer">Apply Now</a>
+              </div>
+      <!-- Job 8 -->
+                  <div class="job-row" data-category="bangalore hyderabad">
+              <div class="job-meta">
+                <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Hyderabad</span>
+                <h3>Analog Circuit Design Engineer</h3>
+                <span class="job-exp">3+ yrs Experience &bull; SPICE Simulation Flows &bull; Lower Node (FinFET) Design</span>
+              </div>
+              <div class="job-tags">
+                <span class="badge-tag">Multi-City Center</span>
+                <span class="badge-tag tag-accent">SPICE Simulations</span>
+                <span class="badge-tag">Lower Node (Sub-7nm)</span>
+              </div>
+              <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Analog Circuit Design Engineer">Apply Now</a>
+            </div>
+
+            
+            <!-- Freshers -->
+<div class="job-row" data-category="hyderabad fresher">
+  <div class="job-meta">
+    <span class="job-location"><i class="fa-solid fa-location-dot"></i> Hyderabad, Telangana</span>
+    <h3>Graduate Trainee Engineer &ndash; STA</h3>
+    <span class="job-exp">Freshers (B.Tech / M.Tech ECE) &bull; Setup &amp; Hold Basics, SDC Constraints &bull; PrimeTime Basics</span>
+  </div>
+  <div class="job-tags">
+    <span class="badge-tag">Hyderabad Hub</span>
+    <span class="badge-tag tag-accent">Graduate Trainee</span>
+    <span class="badge-tag">Timing Analysis (STA)</span>
+  </div>
+  <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Graduate Trainee Engineer STA">Apply Now</a>
+</div>
+<!-- Freshers -->
+<div class="job-row" data-category="bangalore fresher">
+  <div class="job-meta">
+    <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Bangalore, Karnataka</span>
+    <h3>Hardware Emulation Trainee</h3>
+    <span class="job-exp">0–1 yr &bull; Digital Design, C/C++ &amp; Verilog &bull; Hardware Emulation Platforms (Palladium / Zebu)</span>
+  </div>
+  <div class="job-tags">
+    <span class="badge-tag">Bangalore Hub</span>
+    <span class="badge-tag tag-accent">Entry-Level Role</span>
+    <span class="badge-tag">Silicon Emulation</span>
+  </div>
+  <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Hardware Emulation Trainee">Apply Now</a>
+</div>
+<!-- Freshers -->
+ <div class="job-row" data-category="noida fresher">
+  <div class="job-meta">
+    <span class="job-location"><i class="fa-solid fa-location-dot"></i> Noida, Delhi-NCR</span>
+    <h3>Junior Silicon Validation Engineer</h3>
+    <span class="job-exp">Fresh Graduates &bull; Oscilloscopes, Logic Analyzers &bull; Python Automation &amp; Lab Bring-up</span>
+  </div>
+  <div class="job-tags">
+    <span class="badge-tag">Noida Hub</span>
+    <span class="badge-tag tag-accent">Post-Silicon Track</span>
+    <span class="badge-tag">Lab Validation &amp; Python</span>
+  </div>
+  <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Junior Silicon Validation Engineer">Apply Now</a>
+</div>
+<!-- Freshers -->
+ <div class="job-row" data-category="chennai fresher">
+  <div class="job-meta">
+    <span class="job-location"><i class="fa-solid fa-location-dot"></i> Chennai, Tamil Nadu</span>
+    <h3>Foundation IP &amp; Characterization Trainee</h3>
+    <span class="job-exp">Freshers (ECE / VLSI) &bull; CMOS Inverters, SPICE Simulations &bull; Liberty (.lib) Modeling Basics</span>
+  </div>
+  <div class="job-tags">
+    <span class="badge-tag">Chennai Campus</span>
+    <span class="badge-tag tag-accent">Foundation IP Track</span>
+    <span class="badge-tag">SPICE &amp; Liberty (.lib)</span>
+  </div>
+  <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Foundation IP and Characterization Trainee">Apply Now</a>
+</div>
+ <!-- Freshers -->
+  <div class="job-row" data-category="bangalore hyderabad fresher">
+  <div class="job-meta">
+    <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Hyderabad</span>
+    <h3>Embedded Software &amp; Firmware Trainee</h3>
+    <span class="job-exp">0–1 yr &bull; Embedded C, ARM Cortex-M / RISC-V &bull; Device Drivers (I2C, SPI, UART)</span>
+  </div>
+  <div class="job-tags">
+    <span class="badge-tag">Multi-City Center</span>
+    <span class="badge-tag tag-accent">Core Firmware Role</span>
+    <span class="badge-tag">Embedded C &amp; RISC-V</span>
+  </div>
+  <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Embedded Software and Firmware Trainee">Apply Now</a>
+</div>
+  
+
+      <!-- Job 9 -->
+                <div class="job-row" data-category="bangalore hyderabad">
+            <div class="job-meta">
+              <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Hyderabad</span>
+              <h3>Analog Layout Engineer</h3>
+              <span class="job-exp">3+ yrs Experience &bull; Sub-6nm Advanced Nodes &bull; Cadence Virtuoso Flow</span>
+            </div>
+            <div class="job-tags">
+              <span class="badge-tag">Multi-City Center</span>
+              <span class="badge-tag tag-accent">Sub-6nm FinFET</span>
+              <span class="badge-tag">Cadence Virtuoso</span>
+            </div>
+            <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for Analog Layout Engineer">Apply Now</a>
+          </div>
+      <!-- Job 10 -->
+                <div class="job-row" data-category="bangalore">
+            <div class="job-meta">
+              <span class="job-location"><i class="fa-solid fa-location-dot"></i> Bengaluru / Bangalore, Karnataka</span>
+              <h3>AMS Verification Engineer</h3>
+              <span class="job-exp">3+ yrs Experience &bull; Analog Mixed-Signal &bull; PLL, DAC &amp; High-Speed SerDes</span>
+            </div>
+            <div class="job-tags">
+              <span class="badge-tag">Bangalore Hub</span>
+              <span class="badge-tag tag-accent">PLL / DAC / SerDes</span>
+              <span class="badge-tag">Mixed-Signal Verification</span>
+            </div>
+            <a href="#apply" class="btn btn-outline-cyan" aria-label="Apply for AMS Verification Engineer">Apply Now</a>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Candidate Portal -->
+  <section class="section alt-bg" id="apply">
+    <div class="container">
+      <div class="portal-card">
+        <div class="portal-header">
+          <span class="chip-tag"><i class="fa-solid fa-user-astronaut"></i> CANDIDATE PORTAL</span>
+          <h2>Build your career with <br /> MosGrid technologies</h2>
+          <p>Submit your profile and upload your resume. All details and your resume attachment are delivered directly to MosGrid Talent Acquisition.</p>
+        </div>
+
+        <form class="portal-form" id="mosgridForm">
+          <!-- Row 1: Name & Email -->
+          <div class="form-row">
+            <div class="input-block">
+              <label for="candName"><i class="fa-solid fa-user"></i> Full Legal Name <span class="required-asterisk">*</span></label>
+              <input type="text" id="candName" name="Candidate_Name" placeholder="e.g. Rahul Sharma" required />
+            </div>
+            <div class="input-block">
+              <label for="candEmail"><i class="fa-solid fa-envelope"></i> Email Address <span class="required-asterisk">*</span></label>
+              <input type="email" id="candEmail" name="Candidate_Email" placeholder="rahul@example.com" required />
+            </div>
+          </div>
+
+          <!-- Row 2: Contact Number & LinkedIn/Portfolio URL -->
+          <div class="form-row">
+            <div class="input-block">
+              <label for="candPhone"><i class="fa-solid fa-phone"></i> Contact / WhatsApp Number <span class="required-asterisk">*</span></label>
+              <input 
+                type="tel" 
+                id="candPhone" 
+                name="Candidate_Phone" 
+                placeholder="e.g. +91 98765 43210" 
+                pattern="^\+?[0-9\s\-]{10,15}$"
+                title="Please enter a valid 10-digit mobile number (with optional +91 country code)"
+                required 
+              />
+            </div>
+            <div class="input-block">
+              <label for="candLink"><i class="fa-solid fa-link"></i> LinkedIn / GitHub / Portfolio URL</label>
+              <input type="url" id="candLink" name="Portfolio_GitHub_URL" placeholder="https://linkedin.com/in/yourprofile" />
+            </div>
+          </div>
+
+          <!-- Row 3: Preferred Location & Current Status -->
+          <div class="form-row">
+            <div class="input-block">
+              <label for="candDest"><i class="fa-solid fa-earth-americas"></i> Preferred Location / Track <span class="required-asterisk">*</span></label>
+              <select id="candDest" name="Target_Destination" required>
+                <option value="" disabled selected>Choose preferred hub...</option>
+                <option value="Hyderabad Tech Hub">Hyderabad Tech Hub</option>
+                <option value="Bengaluru Semiconductor Corridor">Bengaluru Semiconductor Corridor</option>
+                <option value="Chennai Silicon Center">Chennai Silicon Center</option>
+                <option value="Noida / Delhi-NCR Hub">Noida / Delhi-NCR Hub</option>
+                <option value="Visakhapatnam HQ (Core Lab)">Visakhapatnam HQ (Core Lab)</option>
+                <option value="Open to Any High-Growth Location">Open to Any High-Growth Location</option>
+              </select>
+            </div>
+            <div class="input-block">
+              <label for="candStatus"><i class="fa-solid fa-briefcase"></i> Current Status <span class="required-asterisk">*</span></label>
+              <select id="candStatus" name="Candidate_Status" required>
+                <option value="" disabled selected>Current background...</option>
+                <option value="College Student (Final / Pre-Final Year)">College Student (Final / Pre-Final Year)</option>
+                <option value="Fresh Graduate (0-1 yr exp)">Fresh Graduate (0-1 yr exp)</option>
+                <option value="VLSI / Embedded Professional (2+ yrs)">VLSI / Embedded Professional (2+ yrs)</option>
+                <option value="Corporate Client Seeking Consultancy Services">Corporate Client Seeking Consultancy Services</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 4: Resume Upload Dropzone -->
+          <div class="input-block">
+            <label><i class="fa-solid fa-file-arrow-up"></i> Upload Resume (PDF or Word, max 10MB) <span class="required-asterisk">*</span></label>
+            <div class="upload-dropzone" id="dropzone">
+              <input 
+                type="file" 
+                id="resumeFile" 
+                name="attachment" 
+                accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
+                required 
+              />
+              <div class="dropzone-content" id="dropzoneContent">
+                <div class="upload-icon-ring">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <div class="upload-text">
+                  <strong>Click to browse</strong> or drag & drop your resume here
+                </div>
+                <div class="upload-hint">
+                  Supports <strong>.PDF, .DOC, .DOCX</strong> (Max file size: <strong>10MB</strong>)
+                </div>
+              </div>
+
+              <div class="file-preview-pill" id="filePreview" style="display: none;">
+                <div class="file-info-left">
+                  <i class="fa-solid fa-file-pdf file-type-icon" id="fileTypeIcon"></i>
+                  <div>
+                    <span class="file-name-text" id="fileNameText">resume.pdf</span>
+                    <span class="file-size-text" id="fileSizeText">2.4 MB</span>
+                  </div>
+                </div>
+                <button type="button" class="file-remove-btn" id="fileRemoveBtn" title="Remove file">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+            <div class="file-error-msg" id="fileErrorMsg"></div>
+          </div>
+
+          <!-- Row 5: Core Technical Focus -->
+          <div class="input-block">
+            <label><i class="fa-solid fa-microchip"></i> Core Technical Focus</label>
+            <!-- <div class="checkbox-grid">
+              <label class="custom-check"><input type="checkbox" name="focus_cb" value="RTL Design" /><span>RTL Design</span></label>
+              <label class="custom-check"><input type="checkbox" name="focus_cb" value="Design Verification" /><span>Design Verif (DV)</span></label>
+              <label class="custom-check"><input type="checkbox" name="focus_cb" value="DFT" /><span>DFT</span></label>
+              <label class="custom-check"><input type="checkbox" name="focus_cb" value="Physical Design & STA" /><span>PD & STA</span></label>
+              <label class="custom-check"><input type="checkbox" name="focus_cb" value="Physical Verification" /><span>Physical Verif (PV)</span></label>
+              <label class="custom-check"><input type="checkbox" name="focus_cb" value="EMIR Prototyping" /><span>EMIR</span></label>
+            </div> -->
+
+            <div class="checkbox-grid">
+  <label class="custom-check"><input type="checkbox" name="focus_cb" value="RTL Design" /><span>RTL Design</span></label>
+  <label class="custom-check"><input type="checkbox" name="focus_cb" value="Design Verification" /><span>Design Verif (DV)</span></label>
+  <label class="custom-check"><input type="checkbox" name="focus_cb" value="DFT" /><span>DFT</span></label>
+  <label class="custom-check"><input type="checkbox" name="focus_cb" value="Physical Design" /><span>Physical Design (PD)</span></label>
+  <label class="custom-check"><input type="checkbox" name="focus_cb" value="Physical Verification" /><span>Physical Verif (PV)</span></label>
+  <label class="custom-check"><input type="checkbox" name="focus_cb" value="Static Timing Analysis" /><span>STA / Timing Closure</span></label>
+  <label class="custom-check"><input type="checkbox" name="focus_cb" value="EMIR Analysis" /><span>EMIR Analysis</span></label>
+</div>
+          </div>
+
+          <button type="submit" class="btn btn-glow btn-block" id="submitBtn">
+            <span class="btn-shine"></span>
+            <span>Submit Profile & Attached Resume</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          
+          <div id="formStatus" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="chip-tag"><i class="fa-solid fa-headset"></i> GET IN TOUCH</span>
+        <h2>Connect With Our Silicon Desk</h2>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info-panel">
+          <div class="contact-card-item">
+            <div class="contact-icon-box text-cyan">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="contact-card-details">
+              <h4>Global Headquarters</h4>
+              <p>MosGrid Technologies Pvt. Ltd.<br />Visakhapatnam, Andhra Pradesh, India</p>
+            </div>
+          </div>
+
+          <div class="contact-card-item">
+            <div class="contact-icon-box text-green">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-card-details">
+              <h4>Direct Email Channel</h4>
+              <p><a href="mailto:info@mosgrid.in" class="contact-mail-link">info@mosgrid.in</a></p>
+              <span class="sub-detail"><i class="fa-solid fa-bolt text-cyan"></i> Monitored by Talent Acquisition</span>
+            </div>
+          </div>
+
+          <div class="contact-card-item">
+            <div class="contact-icon-box text-purple">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="contact-card-details">
+              <h4>Operations & Lab Hours</h4>
+              <p>Monday &ndash; Friday: 09:00 AM &ndash; 06:00 PM IST</p>
+              <span class="sub-detail"><i class="fa-solid fa-earth-americas text-cyan"></i> Serving Pan-India Design Centers</span>
+            </div>
+          </div>
+
+          <div class="contact-card-item highlight-card">
+            <div class="contact-icon-box text-cyan">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="contact-card-details">
+              <h4>Rapid Engineering Response</h4>
+              <p>All client RFQs and candidate inquiries receive an initial technical assessment within <strong>12 to 24 hours</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-panel">
+          <form class="contact-form" id="mosgridContactForm">
+            <div class="form-row">
+              <div class="input-block">
+                <label for="contactName"><i class="fa-solid fa-user"></i> Your Name <span class="required-asterisk">*</span></label>
+                <input 
+                  type="text" 
+                  id="contactName" 
+                  name="Contact_Name" 
+                  placeholder="e.g. Anand Varma" 
+                  minlength="2"
+                  required 
+                />
+              </div>
+              <div class="input-block">
+                <label for="contactEmail"><i class="fa-solid fa-envelope"></i> Email Address <span class="required-asterisk">*</span></label>
+                <input 
+                  type="email" 
+                  id="contactEmail" 
+                  name="Contact_Email" 
+                  placeholder="anand@company.com" 
+                  required 
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-block">
+                <label for="contactPhone"><i class="fa-solid fa-phone"></i> Phone / WhatsApp <span class="required-asterisk">*</span></label>
+                <input 
+                  type="tel" 
+                  id="contactPhone" 
+                  name="Contact_Phone" 
+                  placeholder="+91 98765 43210" 
+                  pattern="^\+?[0-9\s\-]{10,15}$"
+                  title="Please enter a valid 10-digit mobile number (with optional +91 country code)"
+                  required 
+                />
+              </div>
+              <div class="input-block">
+                <label for="inquiryType"><i class="fa-solid fa-layer-group"></i> Nature of Inquiry <span class="required-asterisk">*</span></label>
+                <select id="inquiryType" name="Inquiry_Type" required>
+                  <option value="" disabled selected>Select category...</option>
+                  <option value="VLSI Design & Tape-Out Consultancy">VLSI Design & Tape-Out Consultancy</option>
+                  <option value="Domestic Tech Hub Career Placement">Domestic Tech Hub Career Placement</option>
+                  <option value="Student Core Training & Job Placement">Student Core Training & Job Placement</option>
+                  <option value="Corporate Partnership / Client Hiring">Corporate Partnership / Client Hiring</option>
+                  <option value="General Technical Question">General Technical Question</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-block">
+              <label for="contactMessage"><i class="fa-solid fa-message"></i> Message / Requirement Details <span class="required-asterisk">*</span></label>
+              <textarea 
+                id="contactMessage" 
+                name="Message" 
+                rows="5" 
+                placeholder="Outline your silicon specification, training question, or placement query..." 
+                minlength="10"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-glow btn-block" id="contactSubmitBtn">
+              <span class="btn-shine"></span>
+              <span>Transmit Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <div id="contactFormStatus" class="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Col 1: Brand & Socials -->
+      <div class="footer-col brand-col">
+        <a href="index.html" class="brand">
+          <div class="brand-name">
+            <img src="assets/logos/logo.svg" alt="Mosgrid Semiconductor Logo" class="brand-logo-img" />
+          </div>
+        </a>
+
+        <p>
+          A premier semiconductor service-based company delivering turnkey VLSI engineering, ASIC design, and physical implementation. Powering end-to-end silicon solutions from <strong>Visakhapatnam, Andhra Pradesh, India</strong> for leading design houses and fabless enterprises across India.
+        </p>
+
+        <div class="social-chips">
+          <a href="https://www.linkedin.com/company/145368124" class="social-chip" title="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/mosgridtechnologies/" class="social-chip" title="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="mailto:info@mosgrid.in" class="social-chip" title="Email Us" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61595372404268" class="social-chip" title="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Direct Page Navigators -->
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="#about-us">About MosGrid</a>
+        <a href="#vizag-hub">Vizag R&D Hub</a>
+        <a href="#pipeline">Career Pipeline</a>
+        <a href="#openings">Active Openings</a>
+        <a href="#apply">Candidate Portal</a>
+        <a href="#contact">Contact Silicon Desk</a>
+      </div>
+
+      <!-- Col 3: Direct Card Links -->
+      <div class="footer-col">
+        <h5>VLSI Capabilities</h5>
+        <a href="#domain-rtl">RTL / FPGA Design</a>
+        <a href="#domain-dv">Design Verification (DV)</a>
+        <a href="#domain-pd">Physical Design (PD)</a>
+        <a href="#domain-dft">Design for Testability (DFT)</a>
+        <a href="#domain-pv">Physical Verification</a>
+        <a href="#domain-analog">Analog Layout Design</a>
+        <a href="#domain-sta">Advanced STA Closure</a>
+        <a href="#domain-emir">EMIR Analysis</a>
+      </div>
+
+      <!-- Col 4: Operations & Location -->
+      <div class="footer-col">
+        <h5>Headquarters & Operations</h5>
+        <p class="footer-addr">
+          <i class="fa-solid fa-location-dot text-cyan"></i> <strong>Global Headquarters:</strong><br />
+          MosGrid Technologies Pvt Ltd.<br />
+          Visakhapatnam, Andhra Pradesh, India.
+        </p>
+        <p class="footer-addr">
+          <i class="fa-solid fa-envelope text-cyan"></i> <strong>Official Inquiries:</strong><br />
+          <a href="mailto:admin@mosgrid.in" style="color: var(--electric-cyan); text-decoration: none;">admin@mosgrid.in</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Legal Bar -->
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>
+          &copy; 2026 MosGrid Technologies Pvt Ltd. &bull; Visakhapatnam, Andhra Pradesh, India.<br />All rights reserved.
+        </span>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="#contact">Get In Touch</a>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding-top: 12px; margin-top: 10px; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+        Designed &amp; Developed by 
+        <a href="https://www.fusebridge.in" target="_blank" rel="noopener noreferrer" style="color: #dd692e; text-decoration: none; font-weight: 600;">FuseBridge</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

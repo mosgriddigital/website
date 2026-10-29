@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy & Data Portal | MosGrid Technologies</title>
+  <meta name="description" content="Official Data Protection & Privacy Policy for MosGrid Technologies Pvt Ltd. Learn how candidate profiles, resumes, and corporate semiconductor IP are secured." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png?v=3" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Privacy Document Layout Utilities */
+    .privacy-hero {
+      padding: 4.5rem 0 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+      padding: 4rem 0 6rem;
+      align-items: start;
+    }
+    .privacy-sidebar {
+      position: sticky;
+      top: 100px;
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      backdrop-filter: blur(12px);
+    }
+    .privacy-sidebar h4 {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .privacy-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .privacy-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .privacy-nav a:hover {
+      color: var(--electric-cyan);
+      background: rgba(0, 240, 255, 0.05);
+      transform: translateX(4px);
+    }
+    .privacy-nav a i {
+      font-size: 0.75rem;
+      color: var(--electric-cyan);
+      opacity: 0.7;
+    }
+    .privacy-content {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      backdrop-filter: blur(14px);
+    }
+    .privacy-section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 120px;
+    }
+    .privacy-section:last-child {
+      margin-bottom: 0;
+    }
+    .privacy-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .privacy-section h3 span.num {
+      font-family: var(--font-mono);
+      color: var(--electric-cyan);
+      font-size: 1.1rem;
+    }
+    .privacy-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .privacy-section ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+    .privacy-section ul li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+    .privacy-section ul li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--matrix-green);
+      font-size: 0.85rem;
+      top: 2px;
+    }
+    .legal-callout {
+      background: rgba(0, 240, 255, 0.04);
+      border-left: 3px solid var(--electric-cyan);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .legal-callout p {
+      margin: 0;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+    }
+    .badge-iso {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      color: var(--matrix-green);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+    @media (max-width: 992px) {
+      .privacy-grid {
+        grid-template-columns: 1fr;
+      }
+      .privacy-sidebar {
+        display: none;
+      }
+      .privacy-content {
+        padding: 2.2rem 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-theme">
+
+  <!-- Interactive Silicon Circuit Canvas -->
+  <canvas id="circuit-canvas"></canvas>
+
+  <!-- Ambient Electron Aura -->
+  <div class="cursor-aura" id="cursorAura"></div>
+
+  <!-- Global Live Ticker -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><i class="fa-solid fa-shield-halved text-green"></i> <strong>Candidate Trust:</strong> MosGrid protects applicant data and resumes with enterprise-grade encryption.</span>
+      <span class="ticker-item"><i class="fa-solid fa-lock text-cyan"></i> <strong>IP Security:</strong> Client silicon blueprints, RTL codebases, and NDA constraints strictly preserved.</span>
+      <span class="ticker-item"><i class="fa-solid fa-microchip text-green"></i> <strong>Visakhapatnam HQ:</strong> Governing talent deployment pipelines across Bengaluru, Hyderabad, Chennai, and Noida.</span>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-name">
+          <img src="assets/logos/logo.svg" alt="Mosgrid Logo" class="brand-logo-img" />
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="index.html#about-us" class="nav-link"><i class="fa-solid fa-cube"></i> About Us</a>
+        <a href="index.html#openings" class="nav-link"><i class="fa-solid fa-globe"></i> Openings</a>
+        <a href="index.html#apply" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> Registration</a>
+        <a href="index.html#contact" class="nav-link"><i class="fa-solid fa-headset"></i> Contact Us</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="mobile-hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Privacy Hero -->
+  <section class="privacy-hero">
+    <div class="container">
+      <span class="chip-tag"><i class="fa-solid fa-shield-halved"></i> DATA GOVERNANCE & PRIVACY PORTAL</span>
+      <h1 class="hero-heading" style="margin-bottom: 0.8rem;">
+        Candidate Privacy & <span class="electric-text">Semiconductor IP Policy</span>
+      </h1>
+      <p class="hero-subtext" style="max-width: 750px; margin-bottom: 1rem;">
+        Effective Date: <strong>January 1, 2026</strong> &bull; Governing MosGrid Technologies Pvt. Ltd., headquartered in Visakhapatnam, Andhra Pradesh, India.
+      </p>
+      <div class="badge-iso">
+        <i class="fa-solid fa-check-double"></i> DPDP Act Compliant &bull; NDA-Secured Silicon Protocols
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <section class="container privacy-grid">
+    <!-- Table of Contents Sidebar -->
+    <aside class="privacy-sidebar">
+      <h4>Navigation</h4>
+      <nav class="privacy-nav">
+        <a href="#section-1"><i class="fa-solid fa-angle-right"></i> 1. Scope & Intent</a>
+        <a href="#section-2"><i class="fa-solid fa-angle-right"></i> 2. Information Collected</a>
+        <a href="#section-3"><i class="fa-solid fa-angle-right"></i> 3. Resume & File Handling</a>
+        <a href="#section-4"><i class="fa-solid fa-angle-right"></i> 4. Client IP & NDAs</a>
+        <a href="#section-5"><i class="fa-solid fa-angle-right"></i> 5. Talent Sharing</a>
+        <a href="#section-6"><i class="fa-solid fa-angle-right"></i> 6. Data Rights & Erasure</a>
+        <a href="#section-7"><i class="fa-solid fa-angle-right"></i> 7. Grievance Officer</a>
+      </nav>
+    </aside>
+
+    <!-- Detailed Policy Document -->
+    <main class="privacy-content">
+      <!-- Section 1 -->
+      <article class="privacy-section" id="section-1">
+        <h3><span class="num">01.</span> Scope & Purpose</h3>
+        <p>
+          MosGrid Technologies Pvt. Ltd. ("MosGrid", "we", "us", or "our") operates as a specialized VLSI engineering consultancy and core semiconductor staffing service based in Visakhapatnam, Andhra Pradesh, India.
+        </p>
+        <p>
+          This Privacy Policy describes our practices regarding the collection, processing, transfer, storage, and protection of personal data received from engineering candidates, university students, corporate fabless partners, and website visitors across our digital portals.
+        </p>
+      </article>
+
+      <!-- Section 2 -->
+      <article class="privacy-section" id="section-2">
+        <h3><span class="num">02.</span> Information We Collect</h3>
+        <p>When you register through our portal or submit an engineering requirement, we collect:</p>
+        <ul>
+          <li><strong>Identity & Contact Information:</strong> Legal full name, email address, WhatsApp/mobile telephone number, and residential location.</li>
+          <li><strong>Professional Qualifications:</strong> Resumes/CVs, academic transcripts, work history, CAD/EDA skill competencies, and portfolios (e.g., GitHub, LinkedIn).</li>
+          <li><strong>Deployment Preferences:</strong> Target domestic design center preferences (Hyderabad, Bengaluru, Chennai, Noida, or Visakhapatnam HQ).</li>
+          <li><strong>Technical Inquiry Data:</strong> Design project briefs, RFQs, and tape-out support requests submitted via our silicon desk.</li>
+        </ul>
+      </article>
+
+      <!-- Section 3 -->
+      <article class="privacy-section" id="section-3">
+        <h3><span class="num">03.</span> Resume & Attachment Governance</h3>
+        <p>
+          Candidate resumes uploaded via our Candidate Portal (supported formats: PDF, DOC, DOCX up to 10MB) are transmitted over TLS 1.3 encrypted connections directly into our talent storage vault.
+        </p>
+        <div class="legal-callout">
+          <p>
+            <strong>Zero Public Exposure:</strong> Resumes and contact files submitted to MosGrid are never made publicly searchable, indexed by search engine crawlers, or sold to third-party ad networks.
+          </p>
+        </div>
+        <p>
+          Uploaded documents are solely used by technical recruiters and engineering managers to evaluate eligibility for active physical design, verification, DFT, analog, and embedded opportunities.
+        </p>
+      </article>
+
+      <!-- Section 4 -->
+      <article class="privacy-section" id="section-4">
+        <h3><span class="num">04.</span> Silicon IP & Enterprise NDA Protection</h3>
+        <p>
+          Operating within the semiconductor vertical involves handling highly sensitive client intellectual property, including PDK guidelines, netlists, RTL blocks, and floorplans.
+        </p>
+        <ul>
+          <li>All technical consulting agreements are fortified by bilateral Non-Disclosure Agreements (NDAs).</li>
+          <li>Client design information is segregated within zero-trust secure engineering environments.</li>
+          <li>Candidate background verifications adhere strictly to the confidentiality standards mandated by tier-one fabless partners.</li>
+        </ul>
+      </article>
+
+      <!-- Section 5 -->
+      <article class="privacy-section" id="section-5">
+        <h3><span class="num">05.</span> Sharing with Domestic Design Centers</h3>
+        <p>
+          We only share candidate evaluation dossiers (resume, verified skill matrices, and technical assessment notes) with vetted partner companies, fabless semiconductor enterprises, and design services houses after obtaining the candidate’s affirmative consent.
+        </p>
+      </article>
+
+      <!-- Section 6 -->
+      <article class="privacy-section" id="section-6">
+        <h3><span class="num">06.</span> Candidate Rights & Data Erasure</h3>
+        <p>
+          In compliance with the Digital Personal Data Protection (DPDP) framework, you possess the right to:
+        </p>
+        <ul>
+          <li>Request a copy of your stored candidate records and technical profile.</li>
+          <li>Request rectification of out-of-date work experience, telephone numbers, or updated resumes.</li>
+          <li>Request total deletion and purge of your candidate profile from our talent dispatch queue.</li>
+        </ul>
+        <p>
+          To invoke any of these rights, email us at <a href="mailto:info@mosgrid.in" class="contact-mail-link">info@mosgrid.in</a> with the subject line <code>Data Subject Request - [Your Name]</code>.
+        </p>
+      </article>
+
+      <!-- Section 7 -->
+      <article class="privacy-section" id="section-7">
+        <h3><span class="num">07.</span> Grievance & Data Protection Officer</h3>
+        <p>
+          For questions, notices, or formal escalations regarding data governance, contact our designated privacy desk:
+        </p>
+        <div class="legal-callout" style="border-left-color: var(--matrix-green);">
+          <p>
+            <strong>Grievance Officer:</strong> Legal & Talent Governance Desk<br />
+            <strong>Entity:</strong> MosGrid Technologies Pvt. Ltd.<br />
+            <strong>Location:</strong> Visakhapatnam, Andhra Pradesh, India<br />
+            <strong>Email:</strong> <a href="mailto:info@mosgrid.in" class="contact-mail-link">info@mosgrid.in</a><br />
+            <strong>Response SLA:</strong> Within 48 business hours
+          </p>
+        </div>
+      </article>
+    </main>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Col 1: Brand & Socials -->
+      <div class="footer-col brand-col">
+        <a href="index.html" class="brand">
+          <div class="brand-name">
+            <img src="assets/logos/logo.svg" alt="Mosgrid Semiconductor Logo" class="brand-logo-img" />
+          </div>
+        </a>
+
+        <p>
+          A premier semiconductor service-based company delivering turnkey VLSI engineering, ASIC design, and physical implementation. Powering end-to-end silicon solutions from <strong>Visakhapatnam, Andhra Pradesh, India</strong> for leading design houses and fabless enterprises across India.
+        </p>
+
+        <div class="social-chips">
+          <a href="https://www.linkedin.com/company/145368124" class="social-chip" title="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/mosgridtechnologies/" class="social-chip" title="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="mailto:info@mosgrid.in" class="social-chip" title="Email Us" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61595372404268" class="social-chip" title="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Direct Page Navigators -->
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="index.html#about-us">About MosGrid</a>
+        <a href="index.html#vizag-hub">Vizag R&D Hub</a>
+        <a href="index.html#pipeline">Career Pipeline</a>
+        <a href="index.html#openings">Active Openings</a>
+        <a href="index.html#apply">Candidate Portal</a>
+        <a href="index.html#contact">Contact Silicon Desk</a>
+      </div>
+
+      <!-- Col 3: Direct Card Links -->
+      <div class="footer-col">
+        <h5>VLSI Capabilities</h5>
+        <a href="index.html#domain-rtl">RTL / FPGA Design</a>
+        <a href="index.html#domain-dv">Design Verification (DV)</a>
+        <a href="index.html#domain-pd">Physical Design (PD)</a>
+        <a href="index.html#domain-dft">Design for Testability (DFT)</a>
+        <a href="index.html#domain-pv">Physical Verification</a>
+        <a href="index.html#domain-analog">Analog Layout Design</a>
+        <a href="index.html#domain-sta">Advanced STA Closure</a>
+        <a href="index.html#domain-emir">EMIR Analysis</a>
+      </div>
+
+      <!-- Col 4: Operations & Location -->
+      <div class="footer-col">
+        <h5>Headquarters & Operations</h5>
+        <p class="footer-addr">
+          <i class="fa-solid fa-location-dot text-cyan"></i> <strong>Global Headquarters:</strong><br />
+          MosGrid Technologies Pvt Ltd.<br />
+          Visakhapatnam, Andhra Pradesh, India.
+        </p>
+        <p class="footer-addr">
+          <i class="fa-solid fa-envelope text-cyan"></i> <strong>Official Inquiries:</strong><br />
+          <a href="mailto:info@mosgrid.in" style="color: var(--electric-cyan); text-decoration: none;">info@mosgrid.in</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Legal Bar -->
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>
+          &copy; 2026 MosGrid Technologies Pvt Ltd. &bull; Visakhapatnam, Andhra Pradesh, India.<br />All rights reserved.
+        </span>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="index.html#contact">Get In Touch</a>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding-top: 12px; margin-top: 10px; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+        Designed &amp; Developed by 
+        <a href="https://www.fusebridge.in" target="_blank" rel="noopener noreferrer" style="color: #dd692e; text-decoration: none; font-weight: 600;">FuseBridge</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
